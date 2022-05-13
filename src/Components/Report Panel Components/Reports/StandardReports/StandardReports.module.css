@@ -1,0 +1,25 @@
+.container {
+  width: 20vw;
+  /* min-height: 34vh; */
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+
+@media screen and (max-width: 1014px) {
+  .container {
+    width: 25vw;
+  }
+}
+
+@media screen and (max-width: 777px) {
+  .container {
+    width: 30vw;
+  }
+}
+
+@media screen and (max-width: 581px) {
+  .container {
+    width: 35vw;
+    font-size: 10px;
+  }
+}

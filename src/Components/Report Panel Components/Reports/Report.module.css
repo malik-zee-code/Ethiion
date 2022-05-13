@@ -1,0 +1,10 @@
+.title {
+  margin-left: 8px;
+}
+.angel {
+  margin-left: auto;
+  cursor: pointer;
+}
+.dropdown {
+  border-radius: 7px 7px 7px 7px;
+}

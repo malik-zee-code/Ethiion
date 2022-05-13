@@ -1,0 +1,16 @@
+.reportList {
+  cursor: pointer;
+}
+.title {
+  margin-left: 8px;
+  font-weight: 600;
+  text-transform: none;
+  font-size: 12px;
+}
+.link {
+  text-decoration: none;
+  background-color: white;
+}
+.fontBig{
+  font-size: 14px !important;
+}

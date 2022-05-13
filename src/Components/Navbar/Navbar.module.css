@@ -1,0 +1,109 @@
+.navbar {
+  /* background: linear-gradient(45deg, #2155CD, #6b0e89);
+  background: linear-gradient(45deg, #e27ff1, #8678ff); */
+
+  background: linear-gradient(45deg, #0aa1dd, #7162f8);
+  /* background: linear-gradient(45deg, #25de97, #7162f8); */
+
+  padding-bottom: 0px;
+
+  justify-content: center;
+  transition: all 0.1s ease-in;
+}
+.nav__link__icons,
+.nav_text_links {
+  flex: 2;
+}
+.nav_text_links,
+.nav__link__icons,
+.lists {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  margin-left: 40px;
+  padding-bottom: 20px;
+  font-weight: 800;
+  color: white;
+  cursor: pointer;
+}
+.ethiion {
+  width: 150px;
+  height: 60px;
+  padding-top: 15px;
+}
+.link_logo {
+  text-decoration: none;
+  color: rgb(245, 241, 245);
+  font-family: "Righteous", cursive;
+  font-size: 34px;
+  letter-spacing: 1px;
+}
+.link_logo:hover {
+  color: white;
+}
+.list {
+  padding: 12px;
+  list-style: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.list__icons {
+  color: white;
+  list-style: none;
+  margin: 0 18px 0 18px;
+}
+
+.nav__list__icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.borders {
+  border-left: 1px solid white;
+}
+
+.list__icons:nth-child(5) {
+  border-left: 1px solid #ccc;
+  padding: 8px 0 8px 24px;
+}
+.list__icons:nth-child(6) {
+  border-right: 1px solid #ccc;
+  padding: 8px 24px 8px 0px;
+}
+.link {
+  text-decoration: none;
+  color: white;
+}
+.link:hover {
+  color: aliceblue;
+}
+
+@media screen and (max-width: 556px) {
+  .nav_text_links,
+  .link {
+    font-size: 9px;
+    transition: all 0.2s ease-in;
+  }
+  .nav__link__icons {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 777px) {
+  .container {
+    width: 30vw;
+  }
+}
+
+@media screen and (max-width: 581px) {
+  .container {
+    width: 35vw;
+    font-size: 10px;
+  }
+}

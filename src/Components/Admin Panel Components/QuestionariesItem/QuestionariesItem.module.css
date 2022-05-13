@@ -1,0 +1,30 @@
+.workflow {
+  height: 10vh;
+  /* width: 100%; */
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 8px;
+}
+.workflow__title {
+  font-size: 14px;
+  font-weight: 600;
+  flex: 8;
+}
+.jobs_use {
+  flex: 2;
+  font-size: 14px;
+}
+.workflow__actions {
+  display: flex;
+  border: 1px solid #ccc;
+  background-color: #f2f2f2;
+  text-align: center;
+  margin-right: 8px;
+  flex: 1;
+  justify-content: space-around;
+}
+.hr {
+  border-left: 1px solid #ccc;
+}

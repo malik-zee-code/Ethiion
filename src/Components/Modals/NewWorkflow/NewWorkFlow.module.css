@@ -1,0 +1,23 @@
+.NewWorkflow {
+  position: absolute;
+  width: 50vw;
+  min-height: 50%;
+  background-color: white;
+  z-index: 100;
+  top: 25%;
+  left: 25%;
+  opacity: 1;
+  font-size: 40px;
+  border-radius: .5rem;
+}
+.modal{
+  opacity: 0.6;
+}
+
+.btn{
+  background-color: brown;
+  width: 80px;
+  margin: 20px;
+  text-align: center;
+  color: white;
+}

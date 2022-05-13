@@ -1,0 +1,35 @@
+.container {
+  width: 20vw;
+  /* min-height: 8vh; */
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+
+.dataContainer {
+  background-color: white;
+  min-height: 10vh;
+  border-radius: 0px 0px 4px 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ccc;
+  transition: all 1.3s ease-in;
+}
+
+@media screen and (max-width: 1014px) {
+  .container {
+    width: 25vw;
+  }
+}
+
+@media screen and (max-width: 777px) {
+  .container {
+    width: 30vw;
+  }
+}
+@media screen and (max-width: 581px) {
+  .container {
+    width: 35vw;
+    font-size: 10px;
+  }
+}

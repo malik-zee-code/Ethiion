@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 20px 20px;
+}
+.containerReport {
+  width: 100%;
+  background-color: #2155cd;
+}
+.dataContainer {
+  background-color: white;
+  min-height: 10vh;
+  border-radius: 0px 0px 4px 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ccc;
+  transition: all 1.3s ease-in;
+  margin-bottom: 20px;
+  width: 100%;
+}

@@ -1,0 +1,26 @@
+.container {
+  width: 20vw;
+  min-height: 34vh;
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+.title {
+  margin-left: 8px;
+}
+.angel {
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.containerReport,
+.reportList {
+  background-color: #f8f8f8;
+  border-radius: 0 0 0 0;
+  color: #484a4e;
+  font-size: 11px;
+}
+.reportList {
+  font-size: 10px;
+  background-color: white;
+  padding-left: 8px;
+}

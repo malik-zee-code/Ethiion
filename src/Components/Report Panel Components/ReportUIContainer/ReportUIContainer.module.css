@@ -1,0 +1,30 @@
+.container {
+  max-width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  margin: 40px;
+}
+@media screen and (max-width: 581px) {
+  .container {
+    font-size: 10px;
+    /* margin: 10px; */
+  }
+}
+@media screen and (max-width: 957px) {
+  .container {
+    font-size: 13px;
+  }
+}
+.reportSidebarContainer {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.reportDetailContainer {
+  width: 100%;
+  flex: 8;
+  display: flex;
+  flex-direction: column;
+}

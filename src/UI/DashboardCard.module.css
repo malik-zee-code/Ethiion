@@ -1,0 +1,5 @@
+.card {
+  min-height: 40vh;
+  background-color: rgb(240, 215, 250);
+  border-radius: 1rem;
+}

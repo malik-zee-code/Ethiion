@@ -1,0 +1,9 @@
+.actions {
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
