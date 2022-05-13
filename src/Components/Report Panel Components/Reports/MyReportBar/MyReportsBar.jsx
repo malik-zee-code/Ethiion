@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import AppWidgetSummary from "./AppWidgetSummary.js"
-import { useTheme } from '@mui/material/styles';
-import { Grid, Container } from '@mui/material';
 
 import {
   faAngleDown,
@@ -18,7 +15,6 @@ const MyReportContainer = () => {
   const toggleHandler = () => {
     setToggle((prevState) => !prevState);
   };
-  const theme = useTheme();
   return (
     <div className={classes.container}>
       <Report

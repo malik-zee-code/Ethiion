@@ -8,7 +8,6 @@ import AppWebsiteVisits from "../../Components/Report Panel Components/Reports/M
 import AppCurrentVisits from "../../Components/Report Panel Components/Reports/MyReportBar/AppCurrentVisits.js"
 import { useTheme } from '@mui/material/styles';
 import { Grid, Container,Typography } from '@mui/material';
-import Page from '../../Components/Page.js';
 const Reports = () => {
   const theme = useTheme();
   return (

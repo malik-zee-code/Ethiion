@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Applications from "./Components/Application Panel Component/Applications/Applications";
 import Navbar from "./Components/Navbar/Navbar";
 import Admin from "./pages/Admin/Admin";
 import Application from "./pages/Applications/Application";

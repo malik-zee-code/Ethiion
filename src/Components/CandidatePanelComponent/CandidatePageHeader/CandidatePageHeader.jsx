@@ -18,7 +18,6 @@ const customDesignSelect = {
 };
 const CandidatePageHeader = (props) => {
   const [toggle, setToggle] = useState(false);
-  const [searchField, setsearchField] = useState("");
 
   const onChangeHandler = (e) => {
     props.searchHandler(e.target.value);

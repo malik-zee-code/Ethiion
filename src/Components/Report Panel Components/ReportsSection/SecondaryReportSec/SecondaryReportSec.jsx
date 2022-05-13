@@ -5,7 +5,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import ReportSection from "../ReportSection.component";
 import { DataGrid } from "@mui/x-data-grid";
-import Status from "../../../Application Panel Component/Status/Status";
 
 const customazingDataGrid = {
   "& .MuiDataGrid-columnHeaders": {

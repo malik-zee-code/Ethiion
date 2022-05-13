@@ -11,7 +11,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import ethiion from "../../Assets/ethiion.png";
-import logo1 from "../../Assets/Logo1.png";
 
 const Navbar = () => {
   return (
