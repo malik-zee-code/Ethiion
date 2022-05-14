@@ -2,8 +2,8 @@
   /* background: linear-gradient(45deg, #2155CD, #6b0e89);
   background: linear-gradient(45deg, #e27ff1, #8678ff); */
 
-  background: linear-gradient(45deg, #0aa1dd, #7162f8);
-  /* background: linear-gradient(45deg, #25de97, #7162f8); */
+  background: linear-gradient(45deg, #0aacdd, #7162f8);
+  /* background: linear-gradient(45deg, #ffffff, #b7eeec); */
 
   padding-bottom: 0px;
 
@@ -20,7 +20,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
 }
+
 
 .logo {
   margin-left: 40px;
@@ -30,8 +32,8 @@
   cursor: pointer;
 }
 .ethiion {
-  width: 150px;
-  height: 60px;
+  width: 50%;
+  /* height: 1%; */
   padding-top: 15px;
 }
 .link_logo {

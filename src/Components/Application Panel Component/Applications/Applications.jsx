@@ -3,6 +3,7 @@ import React from "react";
 import ApplicationsHeader from "../ApplicationsHeader/ApplicationsHeader";
 import classes from "./Applications.module.css";
 import Status from "../Status/Status";
+import { Button } from "@mui/material";
 
 const customazingDataGrid = {
   "& .MuiDataGrid-columnHeaders": {
@@ -34,40 +35,7 @@ const customazingDataGrid = {
   //   },
   // },
 };
-const columns = [
-  {
-    field: "canidate",
-    headerName: "Canidate",
-    width: 150,
-    textAlign: "center",
-  },
-  {
-    field: "jobname",
-    headerName: "Job name",
-    width: 150,
-  },
-  {
-    field: "applicationDate",
-    headerName: "Application Date",
-    type: "date",
-    width: 170,
-  },
-  {
-    field: "status",
-    headerName: "Status",
-    sortable: false,
-    width: 660,
-    renderCell: (color) => {
-      return <Status className={color} />;
-    },
-  },
-  {
-    field: "action",
-    headerName: "Action",
-    sortable: false,
-    width: 190,
-  },
-];
+
 const rows = [
   {
     id: 1,
@@ -81,55 +49,101 @@ const rows = [
     canidate: "Lannister",
     jobname: "Cersei",
     applicationDate: "12/3/5",
-    status : 1
+    status: 1,
   },
-  { id: 3, 
+  {
+    id: 3,
     canidate: "Lannister",
-    jobname: "Jaime", 
+    jobname: "Jaime",
     applicationDate: "12/3/5",
-    status : 5
+    status: 5,
   },
-  { id: 4, 
-    canidate: "Stark", 
-    jobname: "Arya", 
+  {
+    id: 4,
+    canidate: "Stark",
+    jobname: "Arya",
     applicationDate: "12/3/5",
-    status : 4
-   },
+    status: 4,
+  },
   {
     id: 5,
     canidate: "Targaryen",
     jobname: "Daenerys",
     applicationDate: "12/3/5",
-    status : 3
-    
+    status: 3,
   },
-  { id: 6, canidate: "Melisandre", 
-  jobname: null, 
-  applicationDate: "12/3/5",
-  status : 5
+  {
+    id: 6,
+    canidate: "Melisandre",
+    jobname: null,
+    applicationDate: "12/3/5",
+    status: 5,
   },
   {
     id: 7,
     canidate: "Clifford",
     jobname: "Ferrara",
     applicationDate: "12/3/5",
-    status : 1
+    status: 1,
   },
-  { id: 8, 
+  {
+    id: 8,
     canidate: "Frances",
     jobname: "Rossini",
     applicationDate: "12/3/5",
-    status : 2
+    status: 2,
   },
-  { id: 9, 
-    canidate: "Roxie", 
-    jobname: "Harvey", 
+  {
+    id: 9,
+    canidate: "Roxie",
+    jobname: "Harvey",
     applicationDate: "12/3/5",
-    status : 4
-   },
+    status: 4,
+  },
 ];
 
 const Applications = () => {
+  // const handleClick = () => {
+  //   setState()
+  // }
+  const columns = [
+    {
+      field: "canidate",
+      headerName: "Canidate",
+      width: 150,
+      textAlign: "center",
+    },
+    {
+      field: "jobname",
+      headerName: "Job name",
+      width: 150,
+    },
+    {
+      field: "applicationDate",
+      headerName: "Application Date",
+      type: "date",
+      width: 170,
+    },
+    {
+      field: "status",
+      headerName: "Status",
+      sortable: false,
+      width: 960,
+      renderCell: (color) => {
+        return <Status className={color} />;
+      },
+    },
+    // {
+    //   field: "action",
+    //   headerName: "Action",
+    //   sortable: false,
+    //   width: 160,
+    //   renderCell: (cellValue) => {
+    //     console.log(cellValue);
+    //     return <Button variant="contained">Proceed</Button>;
+    //   },
+    // },
+  ];
   return (
     <>
       <ApplicationsHeader />

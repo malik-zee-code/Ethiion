@@ -4,71 +4,62 @@
       "candidates": "Snow",
       "jobname": "TSR",
       "viewed": "Yes",
-      "recieved": "green",
-      "action": "34"
+      "recieved": "green"
     },
     {
       "id": 2,
       "candidates": "Lannister",
       "jobname": "TSR",
       "viewed": "No",
-      "recieved": "green",
-      "action": "34"
+      "recieved": "green"
     },
     {
       "id": 3,
       "candidates": "Lannister",
       "jobname": "CSR",
       "viewed": "Yes",
-      "recieved": "green",
-      "action": "34"
+      "recieved": "green"
     },
     {
       "id": 4,
       "candidates": "Stark",
       "jobname": "TSR",
       "viewed": "Yes",
-      "recieved": "green",
-      "action": "34"
+      "recieved": "green"
     },
     {
       "id": 5,
       "candidates": "Targaryen",
       "jobname": "TSR",
       "viewed": "No",
-      "recieved": "green",
-      "action": "34"
+      "recieved": "green"
     },
     {
       "id": 6,
       "candidates": "Melisandre",
       "jobname": "CSR",
       "viewed": "No",
-      "recieved": "green",
-      "action": "34"
+      "recieved": "green"
     },
     {
       "id": 7,
       "candidates": "Clifford",
       "jobname": "CSR",
       "viewed": "Yes",
-      "recieved": "green",
-      "action": "34"
+      "recieved": "green"
     },
     {
       "id": 8,
       "candidates": "Frances",
       "jobname": "TSR",
       "viewed": "No",
-      "recieved": "green",
-      "action": "34"
+      "recieved": "green"
     },
     {
       "id": 9,
       "candidates": "Roxie",
       "jobname": "CSR",
       "viewed": "Yes",
-      "recieved": "green",
-      "action": "34"
+      "recieved": "green"
     }
   ]

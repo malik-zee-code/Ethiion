@@ -1,10 +1,13 @@
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown, faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import React from "react";
+import React, { useState } from "react";
 import classes from "./CandidateSection.module.css";
 import data from "../Data.json";
+import { useSelector } from "react-redux";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import ButtonDown from "../btnComponent/btn.component";
 
 const customazingDataGrid = {
   "& .MuiDataGrid-columnHeaders": {
@@ -53,59 +56,74 @@ const customazingDataGrid = {
     },
   },
 };
-const columns = [
-  {
-    field: "candidates",
-    headerName: "Candidates",
-    width: 350,
-    textAlign: "center",
-  },
-  {
-    field: "jobname",
-    headerName: "Job name",
-    width: 190,
-  },
-  {
-    field: "viewed",
-    headerName: "Viewed",
-    type: "date",
-    width: 270,
-  },
-  {
-    field: "recieved",
-    headerName: "Recieved",
-    sortable: false,
-    width: 360,
-  },
-  {
-    field: "action",
-    headerName: "Action",
-    sortable: false,
-    width: 120,
-    renderCell: (cellValues) => {
-      return (
-        <Button
-          // variant="contained"
-          // color="primary"
-          onClick={(event) => {
-            // handleClick(event, cellValues);
-          }}
-        >
-          <FontAwesomeIcon icon={faAngleDown} />
-        </Button>
-      );
-    },
-  },
-];
 
 const CandidateSection = ({ query }) => {
-  // console.log(query);
-  const Data = data.filter((d) => d.candidates.includes(query) || !query);
+  const [toggle, setToggle] = useState(false);
+  const row = useSelector((state) => state.candidate.candidateData);
+  const [propData, setpropData] = useState(false);
+  const naviagate = useNavigate();
 
-  
+  const handleData = (data) => {
+    setpropData(data);
+  };
+
+  const buttons = [
+    <Button key="one" onClick={() => naviagate("/applications")}>
+      {" "}
+      Invite
+    </Button>,
+  ];
+  const columns = [
+    {
+      field: "candidates",
+      headerName: "Candidates",
+      width: 350,
+      editable: true,
+      textAlign: "center",
+      render: () => {
+        // <Link className={classes.link} to="/">
+        <FontAwesomeIcon icon={faEye} />;
+        // </Link>;
+      },
+    },
+    {
+      field: "jobname",
+      headerName: "Job name",
+      width: 190,
+      editable: true,
+    },
+    {
+      field: "viewed",
+      headerName: "Viewed",
+      type: "text",
+      width: 270,
+      editable: true,
+    },
+    {
+      field: "recieved",
+      headerName: "Recieved",
+      sortable: false,
+      width: 490,
+      editable: true,
+      type: "date",
+      renderCell: (cellValues) => {
+        // const [state, setState] = useState();
+        return (
+          <>
+            {cellValues.value}
+
+            {<ButtonDown handleData={handleData} />}
+            {propData && buttons}
+          </>
+        );
+      },
+    },
+  ];
+  // console.log(query);
+  const Data = row.filter((r) => r.candidates.includes(query) || !query);
+
   return (
     <div className={`${classes.CandidateSec} container`}>
-      {console.log(data)}
       <DataGrid
         rows={Data}
         columns={columns}

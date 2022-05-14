@@ -11,6 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import ethiion from "../../Assets/ethiion.png";
+import { Input } from "@mui/material";
 
 const Navbar = () => {
   return (
@@ -48,12 +49,13 @@ const Navbar = () => {
       </div>
       <div className={classes.nav__link__icons}>
         <ul className={classes.nav__list__icons}>
+          <Input defaultValue="" style={{backgroundColor:'white'}} />
           <li className={classes.list__icons}>
-            <Link className={classes.link} to="/">
-              <FontAwesomeIcon icon={faEye} /> 1
-            </Link>
+            {/* <Link className={classes.link} to="/"> */}
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+            {/* </Link> */}
           </li>
-          <li className={classes.list__icons}>
+          {/* <li className={classes.list__icons}>
             <Link className={classes.link} to="/">
               <FontAwesomeIcon icon={faCheck} /> 0
             </Link>
@@ -62,23 +64,18 @@ const Navbar = () => {
             <Link className={classes.link} to="/">
               <FontAwesomeIcon icon={faCalendarDays} /> 1
             </Link>{" "}
-          </li>
+          </li> */}
           <li className={classes.list__icons}>
             <Link className={classes.link} to="/">
               <FontAwesomeIcon icon={faInbox} /> 0
             </Link>
           </li>
 
-          <li className={classes.list__icons}>
+          {/* <li className={classes.list__icons}>
             <Link className={classes.link} to="/">
               <FontAwesomeIcon icon={faCircleQuestion} />
             </Link>
-          </li>
-          <li className={classes.list__icons}>
-            <Link className={classes.link} to="/">
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
-            </Link>
-          </li>
+          </li> */}
         </ul>
 
         {/* <ul className={classes.query}></ul> */}
