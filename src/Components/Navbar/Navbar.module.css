@@ -2,7 +2,7 @@
   /* background: linear-gradient(45deg, #2155CD, #6b0e89);
   background: linear-gradient(45deg, #e27ff1, #8678ff); */
 
-  background: linear-gradient(45deg, #0aacdd, #7162f8);
+  background: linear-gradient(45deg, #ffb20a, #7162f8);
   /* background: linear-gradient(45deg, #ffffff, #b7eeec); */
 
   padding-bottom: 0px;
@@ -35,6 +35,7 @@
   width: 50%;
   /* height: 1%; */
   padding-top: 15px;
+  border: 1px solid white;
 }
 .link_logo {
   text-decoration: none;
