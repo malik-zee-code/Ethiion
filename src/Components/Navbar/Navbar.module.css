@@ -20,9 +20,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
-
 
 .logo {
   margin-left: 40px;
@@ -32,10 +30,7 @@
   cursor: pointer;
 }
 .ethiion {
-  width: 50%;
-  /* height: 1%; */
-  padding-top: 15px;
-  /* border: 1px solid white; */
+  width: 30%;
 }
 .link_logo {
   text-decoration: none;
@@ -50,8 +45,8 @@
 .list {
   padding: 12px;
   list-style: none;
-  text-transform: uppercase;
-  font-size: 12px;
+  text-transform: capitalize;
+  font-size: 16px;
   font-weight: 500;
 }
 

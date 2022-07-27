@@ -48,6 +48,7 @@ const Status = (props) => {
         variant="contained"
         style={{ marginLeft: "20%" }}
         onClick={handleSubmit}
+        className="bg-indigo-600"
       >
         Proceed
       </Button>

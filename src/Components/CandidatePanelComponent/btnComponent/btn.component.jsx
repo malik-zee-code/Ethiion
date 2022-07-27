@@ -11,10 +11,11 @@ const ButtonDown = (props) => {
       color="primary"
       onClick={(event) => {
         setToggle((prevState) => !prevState);
-        props.handleData(toggle)
+        props.handleData(toggle);
         // handleClick(event, cellValues);
       }}
       style={{ marginLeft: "40%" }}
+      className="bg-indigo-600"
     >
       <FontAwesomeIcon icon={faAngleDown} />
     </Button>
