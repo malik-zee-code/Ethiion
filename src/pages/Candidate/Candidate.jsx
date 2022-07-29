@@ -1,11 +1,10 @@
 import React from "react";
-import classes from "./Candidate.module.css";
-import CandidateContainer from "../../Components/CandidatePanelComponent/Candidate/Candidate";
+import CandidateComp from "../../Components/CandidatePanelComponent/CandidateComp";
 
 const Candidate = () => {
   return (
-    <div className={classes.container}>
-      <CandidateContainer />
+    <div>
+      <CandidateComp />
     </div>
   );
 };

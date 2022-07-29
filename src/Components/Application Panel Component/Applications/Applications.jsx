@@ -3,7 +3,6 @@ import React from "react";
 import ApplicationsHeader from "../ApplicationsHeader/ApplicationsHeader";
 import classes from "./Applications.module.css";
 import Status from "../Status/Status";
-import { Button } from "@mui/material";
 
 const customazingDataGrid = {
   "& .MuiDataGrid-columnHeaders": {

@@ -1,26 +1,10 @@
-import React, { useEffect } from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
-// import AdminSetting from "../../Components/AdministrativeSettings/AdminSetting";
-import AdminSetting from "../../Components/Admin Panel Components/AdministrativeSettings/AdminSetting";
-import Template from "./Template/Template";
-
-let isInitial = true;
+import React from "react";
+import AdminSettings from "../../Components/Admin Panel Components/AdminSettings";
 
 const Admin = () => {
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (isInitial) {
-      navigate("template/hiring-workflow");
-      isInitial = false;
-    }
-  }, [navigate]);
-
   return (
-    <div>
-      <AdminSetting />
-      <Routes>
-        <Route path="template/*" element={<Template />} />
-      </Routes>
+    <div className="">
+      <AdminSettings />
     </div>
   );
 };
