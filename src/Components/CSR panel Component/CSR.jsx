@@ -39,7 +39,7 @@ const CSR = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         <Stats title="Applied" value="10" />
         <Stats title="Phone Screening" value="10" />
         <Stats title="Assessment" value="10" />
@@ -194,7 +194,9 @@ const CSR = () => {
                   </IconButton>{" "}
                   <div className="ml-auto">
                     <span className="text-xl">2 Watchers</span>
-                    <button className="p-2 bg-[#efefef] ml-3 rounded-md ">Watch</button>
+                    <button className="p-2 bg-[#efefef] ml-3 rounded-md ">
+                      Watch
+                    </button>
                   </div>
                 </div>
               </div>

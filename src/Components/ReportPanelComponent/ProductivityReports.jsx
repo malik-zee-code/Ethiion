@@ -1,10 +1,8 @@
-import { faBell } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Pie } from "react-chartjs-2";
 import React from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { CategoryScale, LinearScale, BarElement, Title } from "chart.js";
-import { Bar } from "react-chartjs-2";
+import { Bar, Doughnut } from "react-chartjs-2";
 import { faker } from "@faker-js/faker";
 
 const data = {
@@ -26,6 +24,7 @@ const data = {
 // Candidate Pipeline Reports
 
 const options = {
+  maintainAspectRatio: false,
   responsive: true,
   plugins: {
     legend: {},
@@ -44,6 +43,52 @@ const ProductiveData = {
       label: "Dataset 1",
       data: labels.map(() => faker.datatype.number({ min: 0, max: 10000 })),
       backgroundColor: "rgb(113, 194, 133)",
+      barThickness: 16,
+      minBarLength: 12,
+    },
+  ],
+};
+
+// Candidate Flow
+
+const CandidateVelocoptions = {
+  maintainAspectRatio: false,
+  responsive: true,
+  plugins: {
+    legend: {},
+    title: {
+      display: true,
+    },
+  },
+};
+
+const CandidateVeloData = {
+  labels,
+  datasets: [
+    {
+      label: "Dataset 1",
+      data: labels.map(() => faker.datatype.number({ min: 0, max: 10000 })),
+      backgroundColor: "rgb(255, 206, 86)",
+      barThickness: 16,
+      minBarLength: 12,
+    },
+  ],
+};
+
+const CandidateSurvivedata = {
+  labels: ["Stage", "Stage", "Stage", "Stage", "Stage", "Stage"],
+  datasets: [
+    {
+      label: "# of Votes",
+      data: [13, 15, 16, 24, 27, 5],
+      backgroundColor: [
+        "rgb(139, 68, 124)",
+        "rgb(98, 55, 111)",
+        "rgb(7, 138, 171)",
+        "rgb(39, 165, 129)",
+        "rgb(150, 170, 59)",
+        "rgb(240, 87, 127)",
+      ],
     },
   ],
 };
@@ -67,8 +112,8 @@ const ProductivityReports = () => {
 
       {/* Candidate Pipeline */}
 
-      <div className="grid grid-cols-4  p-4 ">
-        <div className="min-h-[400px] w-[400px] bg-white rounded-md p-3 flex flex-col">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-4 ">
+        <div className="max-h-[500px] w-[400px] bg-white rounded-md p-3 flex flex-col mt-3">
           <div className="flex">
             {" "}
             <span className="text-xl font-semibold"> Candidate Pipeline</span>
@@ -78,15 +123,16 @@ const ProductivityReports = () => {
               defaultValue="3-12-2002"
             />
           </div>
-
-          <Bar options={options} data={ProductiveData} className="h-full" />
+          <div className="h-full">
+            <Bar options={options} data={ProductiveData} />
+          </div>
         </div>
 
-        {/* candidate Source */}
-        <div className="min-h-[400px] w-[400px] bg-white rounded-md p-3">
+        {/* Candidate Flow*/}
+        <div className="max-h-[500px]  w-[400px] bg-white rounded-md p-3 mt-3">
           <div className="flex">
             {" "}
-            <span className="text-xl font-semibold"> Candidate Source</span>
+            <span className="text-xl font-semibold"> Candidate Flow</span>
             <input
               type="date"
               className="ml-auto p-1"
@@ -96,71 +142,23 @@ const ProductivityReports = () => {
           <Pie className=" mt-3" data={data} />
         </div>
 
-        {/* Activity Thread */}
-        <div className="min-h-[400px] w-[400px] bg-white rounded-md p-3">
+        {/*Candidate Velocity */}
+        <div className="max-h-[500px]  w-[400px] flex flex-col bg-white rounded-md p-3 mt-3">
           <div className="flex">
             {" "}
-            <span className="text-xl font-semibold"> Activity Thread</span>
+            <span className="text-xl font-semibold">Candidate Velocity</span>
             <input
               type="date"
               className="ml-auto p-1"
               defaultValue="3-12-2002"
             />
           </div>
-
-          <div className="flex flex-col h-full mt-4">
-            <div className="flex">
-              <div className=" flex items-center justify-center h-[70px] w-[70px] bg-white rounded-full border-b-[3px]">
-                <FontAwesomeIcon
-                  icon={faBell}
-                  className=" w-full h-[30px] rounded-full "
-                />
-              </div>
-              <div className="flex flex-col justify-center ml-4">
-                <span className="font-semibold">Launch Date</span>
-                <span className="text-slate-500">SPB Project</span>
-              </div>
-            </div>
-            <div className="flex mt-3">
-              <div className=" flex items-center justify-center h-[70px] w-[70px] bg-white rounded-full border-b-[3px]">
-                <FontAwesomeIcon
-                  icon={faBell}
-                  className=" w-full h-[30px] rounded-full "
-                />
-              </div>
-              <div className="flex flex-col justify-center ml-4">
-                <span className="font-semibold">New Application HR</span>
-                <span className="text-slate-500">Hiring Manager</span>
-              </div>
-            </div>
-            <div className="flex mt-3">
-              <div className=" flex items-center justify-center h-[70px] w-[70px] bg-white rounded-full border-b-[3px]">
-                <FontAwesomeIcon
-                  icon={faBell}
-                  className=" w-full h-[30px] rounded-full "
-                />
-              </div>
-              <div className="flex flex-col justify-center ml-4">
-                <span className="font-semibold">23 New Applications</span>
-                <span className="text-slate-500">Software Engeenering</span>
-              </div>
-            </div>
-            <div className="flex mt-3">
-              <div className=" flex items-center justify-center h-[70px] w-[70px] bg-white rounded-full border-b-[3px]">
-                <FontAwesomeIcon
-                  icon={faBell}
-                  className=" w-full h-[30px] rounded-full "
-                />
-              </div>
-              <div className="flex flex-col justify-center ml-4">
-                <span className="font-semibold">Interview is Scheduled</span>
-                <span className="text-slate-500">HR Manager</span>
-              </div>
-            </div>
+          <div className="h-full">
+            <Bar options={CandidateVelocoptions} data={CandidateVeloData} />{" "}
           </div>
         </div>
         {/* Team Tracker */}
-        <div className="min-h-[400px] w-[400px] bg-white rounded-md p-3">
+        <div className="max-h-[500px] w-[400px] bg-white rounded-md p-3 mt-3">
           <div className="flex">
             {" "}
             <span className="text-xl font-semibold"> Team Tracker</span>
@@ -171,56 +169,7 @@ const ProductivityReports = () => {
             />
           </div>
 
-          <div className="flex flex-col h-full mt-4">
-            <div className="flex">
-              <div className=" flex items-center justify-center h-[70px] w-[70px] bg-white rounded-full border-b-[3px]">
-                <FontAwesomeIcon
-                  icon={faBell}
-                  className=" w-full h-[30px] rounded-full "
-                />
-              </div>
-              <div className="flex flex-col justify-center ml-4">
-                <span className="font-semibold">Launch Date</span>
-                <span className="text-slate-500">SPB Project</span>
-              </div>
-            </div>
-            <div className="flex mt-3">
-              <div className=" flex items-center justify-center h-[70px] w-[70px] bg-white rounded-full border-b-[3px]">
-                <FontAwesomeIcon
-                  icon={faBell}
-                  className=" w-full h-[30px] rounded-full "
-                />
-              </div>
-              <div className="flex flex-col justify-center ml-4">
-                <span className="font-semibold">New Application HR</span>
-                <span className="text-slate-500">Hiring Manager</span>
-              </div>
-            </div>
-            <div className="flex mt-3">
-              <div className=" flex items-center justify-center h-[70px] w-[70px] bg-white rounded-full border-b-[3px]">
-                <FontAwesomeIcon
-                  icon={faBell}
-                  className=" w-full h-[30px] rounded-full "
-                />
-              </div>
-              <div className="flex flex-col justify-center ml-4">
-                <span className="font-semibold">23 New Applications</span>
-                <span className="text-slate-500">Software Engeenering</span>
-              </div>
-            </div>
-            <div className="flex mt-3">
-              <div className=" flex items-center justify-center h-[70px] w-[70px] bg-white rounded-full border-b-[3px]">
-                <FontAwesomeIcon
-                  icon={faBell}
-                  className=" w-full h-[30px] rounded-full "
-                />
-              </div>
-              <div className="flex flex-col justify-center ml-4">
-                <span className="font-semibold">Interview is Scheduled</span>
-                <span className="text-slate-500">HR Manager</span>
-              </div>
-            </div>
-          </div>
+          <Doughnut data={CandidateSurvivedata} />
         </div>
       </div>
     </div>

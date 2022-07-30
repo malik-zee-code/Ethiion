@@ -29,8 +29,8 @@ const BasicReports = () => {
         <span className="font-semibold text-xl  ">Basic Report</span>
       </div>
 
-      <div className="grid grid-cols-4  p-4 ">
-        <div className="min-h-[400px] w-[400px] bg-white rounded-md p-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  p-4 ">
+        <div className="min-h-[400px] w-[400px] bg-white rounded-md p-3 mt-3">
           <div className="flex">
             {" "}
             <span className="text-xl font-semibold">
@@ -93,7 +93,7 @@ const BasicReports = () => {
         </div>
 
         {/* candidate Source */}
-        <div className="min-h-[400px] w-[400px] bg-white rounded-md p-3">
+        <div className="min-h-[400px] w-[400px] bg-white rounded-md p-3 mt-3">
           <div className="flex">
             {" "}
             <span className="text-xl font-semibold"> Candidate Source</span>
@@ -107,7 +107,7 @@ const BasicReports = () => {
         </div>
 
         {/* Activity Thread */}
-        <div className="min-h-[400px] w-[400px] bg-white rounded-md p-3">
+        <div className="min-h-[400px] w-[400px] bg-white rounded-md p-3 mt-3">
           <div className="flex">
             {" "}
             <span className="text-xl font-semibold"> Activity Thread</span>
@@ -170,7 +170,7 @@ const BasicReports = () => {
           </div>
         </div>
         {/* Team Tracker */}
-        <div className="min-h-[400px] w-[400px] bg-white rounded-md p-3">
+        <div className="min-h-[400px] w-[400px] bg-white rounded-md p-3 mt-3">
           <div className="flex">
             {" "}
             <span className="text-xl font-semibold"> Team Tracker</span>

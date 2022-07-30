@@ -3,7 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconButton } from "@mui/material";
 import React from "react";
 import BasicReports from "./BasicReports";
+import EmployeeBasicReport from "./EmployeeBasicReport";
+import OtherReports from "./OtherReports";
 import ProductivityReports from "./ProductivityReports";
+import TimingReports from "./TimingReports";
 
 const ReportComp = () => {
   return (
@@ -57,6 +60,17 @@ const ReportComp = () => {
       </div>
       <BasicReports />
       <ProductivityReports />
+
+      <div className="flex min-h-[800px]">
+        <TimingReports />
+        <OtherReports />
+      </div>
+
+      <div className="w-full h-[100px] bg-[#02a882] text-3xl  rounded-xl flex items-center justify-center">
+        <span className="text-white font-bold">Employee Report</span>
+      </div>
+
+      <EmployeeBasicReport />
     </div>
   );
 };

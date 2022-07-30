@@ -56,22 +56,21 @@ const AdminSettings = () => {
             </ul>
           </div>
 
-          <div className=" p-20 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2">
+          <div className=" p-20 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-2">
             <CardsAutomation title="Ethiion Assessment" />
             <CardsAutomation title="Ethiion Assessment" />
             <CardsAutomation title="Ethiion Assessment" />
             <CardsAutomation title="Ethiion Assessment" />
-
           </div>
-            <div className="mt-auto p-10">
-              <button className="btn ml-4 px-10 bg-[#02A882] text-white outline-none hover:bg-[#038466] border-none mr-7">
-                <FontAwesomeIcon icon={faPlus} className="mr-4 h-5" />
-                New Folder
-              </button>
-              <button className="btn bg-[#8635B0] px-9 text-white outline-none hover:bg-[#722b95] border-none">
-                New Email
-              </button>
-            </div>
+          <div className="mt-auto p-10">
+            <button className="btn ml-4 px-10 bg-[#02A882] text-white outline-none hover:bg-[#038466] border-none mr-7">
+              <FontAwesomeIcon icon={faPlus} className="mr-4 h-5" />
+              New Folder
+            </button>
+            <button className="btn bg-[#8635B0] px-9 text-white outline-none hover:bg-[#722b95] border-none">
+              New Email
+            </button>
+          </div>
         </div>
       </div>
     </div>
