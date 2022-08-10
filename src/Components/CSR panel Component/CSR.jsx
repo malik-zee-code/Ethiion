@@ -40,18 +40,46 @@ const CSR = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-        <Stats title="Applied" value="10" />
-        <Stats title="Phone Screening" value="10" />
-        <Stats title="Assessment" value="10" />
-        <Stats title="Interview" value="10" />
-        <Stats title="Offer" value="10" />
+        <Stats
+          title="Applied"
+          value="10"
+          className="bg-[#ffffff]  m-4 min-w-[180px] h-[200px] flex items-center"
+        />
+        <Stats
+          title="Phone Screening"
+          value="10"
+          className="bg-[#ffffff]  m-4 min-w-[180px] h-[200px] flex items-center"
+        />
+        <Stats
+          title="Assessment"
+          value="10"
+          className="bg-[#ffffff]  m-4 min-w-[180px] h-[200px] flex items-center"
+        />
+        <Stats
+          title="Interview"
+          value="10"
+          className="bg-[#ffffff]  m-4 min-w-[180px] h-[200px] flex items-center"
+        />
+        <Stats
+          title="Offer"
+          value="10"
+          className="bg-[#ffffff]  m-4 min-w-[180px] h-[200px] flex items-center"
+        />
       </div>
 
       <div className="mt-4 w-full min-h-[800px] flex ">
         <div className="w-[700px] h-full bg-white flex flex-col rounded-md p-10">
           <div className="flex  justify-around">
-            <Stats title="Qualified" value="10" className=" shadow-lg" />
-            <Stats title="Disqualified" value="10" className=" shadow-lg" />
+            <Stats
+              title="Qualified"
+              value="10"
+              className="bg-[#ffffff]  m-4 min-w-[180px] h-[200px] flex items-center shadow-lg"
+            />
+            <Stats
+              title="Disqualified"
+              value="10"
+              className=" bg-[#ffffff]  m-4 min-w-[180px] h-[200px] flex items-center shadow-lg"
+            />
           </div>
 
           <input

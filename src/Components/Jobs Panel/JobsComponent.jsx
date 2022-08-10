@@ -6,19 +6,169 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CloseIcon from "@mui/icons-material/Close";
 import {
+  Button,
   Checkbox,
+  ClickAwayListener,
   FormControlLabel,
   FormGroup,
   IconButton,
   Modal,
+  Tooltip,
 } from "@mui/material";
+import { DataGrid } from "@mui/x-data-grid";
 import React from "react";
 import { useState } from "react";
 import Alert from "./AlertComp";
 import CandidateStats from "./CandidateStats";
+import Jobs from "./Jobs";
 
 const JobsComponent = () => {
   const [toggleModal, setToggleModal] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const stage = ["Interview", "Offer", "Applied,Assesment, H. Screen"];
+
+  const rows = [
+    {
+      id: 1,
+      Candidate: "Zeeshan",
+      JobTitle: "TSR",
+      ApplicationDate: "12/23/22",
+      Stages: "Interview",
+    },
+    {
+      id: 2,
+      Candidate: "Zain",
+      JobTitle: "CSR",
+      ApplicationDate: "12/23/22",
+      Stages: "Offer",
+    },
+    {
+      id: 3,
+      Candidate: "Sheldon",
+      JobTitle: "TSR",
+      ApplicationDate: "12/23/22",
+      Stages: "Applied",
+    },
+    {
+      id: 4,
+      Candidate: "Ahmad",
+      JobTitle: "TSR",
+      ApplicationDate: "12/23/22",
+      Stages: "Interview",
+    },
+    {
+      id: 5,
+      Candidate: "Ahmad",
+      JobTitle: "CSR",
+      ApplicationDate: "12/23/22",
+      Stages: "H. Screen",
+    },
+    {
+      id: 6,
+      Candidate: "Ali",
+      JobTitle: "CSR",
+      ApplicationDate: "12/23/22",
+      Stages: "Assesment",
+    },
+  ];
+
+  const columns = [
+    {
+      field: "id",
+      headerName: "id",
+      flex: 1,
+      maxWidth: 50,
+      description: "Row number",
+      headerAlign: "left",
+    },
+    {
+      field: "Candidate",
+      headerName: "Candidate",
+      flex: 1,
+      maxWidth: 300,
+      description: "Candidate Name",
+      headerAlign: "left",
+    },
+    {
+      field: "JobTitle",
+      headerName: "Job Title",
+      flex: 1,
+      maxWidth: 300,
+      description: "Job Title",
+      headerAlign: "left",
+    },
+    {
+      field: "ApplicationDate",
+      headerName: "Application Date",
+      flex: 1,
+      maxWidth: 300,
+      description: "Application Date",
+      headerAlign: "left",
+    },
+    {
+      field: "Stages",
+      headerName: "Stages",
+      flex: 1,
+      minWidth: 50,
+      description: "Stages",
+      headerAlign: "left",
+
+      renderCell: (params) => {
+        const value = params.value;
+        console.log(value);
+        return (
+          <>
+            <button
+              className={`btn no-animation ${
+                value === "Applied"
+                  ? "bg-indigo-500 text-white hover:bg-indigo-600"
+                  : "bg-slate-200 hover:bg-slate-200"
+              }   border-none  font-normal capitalize rounded-[4px] tracking-wider mr-5 text-black`}
+            >
+              Applied
+            </button>
+            <button
+              className={`btn no-animation ${
+                value === "H. Screen"
+                  ? "bg-indigo-500 text-white hover:bg-indigo-600"
+                  : "bg-slate-200 hover:bg-slate-200"
+              } border-none  font-normal capitalize rounded-[4px] tracking-wider mr-5 text-black`}
+            >
+              h. Screen
+            </button>
+            <button
+              className={`btn no-animation ${
+                value === "Assesment"
+                  ? "bg-indigo-500 text-white hover:bg-indigo-600"
+                  : "bg-slate-200 hover:bg-slate-200"
+              }  border-none font-normal capitalize rounded-[4px] tracking-wider mr-5 text-black`}
+            >
+              Assesment
+            </button>
+            <button
+              className={`btn no-animation ${
+                value === "Interview"
+                  ? "bg-indigo-500 text-white hover:bg-indigo-600"
+                  : "bg-slate-200 hover:bg-slate-200"
+              } border-none font-normal capitalize rounded-[4px] tracking-wider mr-5 text-black`}
+            >
+              Interview
+            </button>
+            <button
+              className={`btn no-animation ${
+                value === "Offer"
+                  ? "bg-indigo-500 text-white hover:bg-indigo-600"
+                  : "bg-slate-200 hover:bg-slate-200"
+              }  border-none font-normal capitalize rounded-[4px] tracking-wider mr-5 text-black`}
+            >
+              offer
+            </button>
+          </>
+        );
+      },
+    },
+  ];
 
   return (
     <div className="">
@@ -28,11 +178,31 @@ const JobsComponent = () => {
           {" "}
           <span className="text-3xl tracking-wide font-bold font-sans ">
             Zircone Industries{" "}
-            <FontAwesomeIcon icon={faExternalLink} className="h-5  ml-3" />
+            <ClickAwayListener onClickAway={() => setOpen(false)}>
+              <Tooltip
+                PopperProps={{
+                  disablePortal: true,
+                }}
+                onClose={() => setOpen(false)}
+                open={open}
+                disableFocusListener
+                disableHoverListener
+                disableTouchListener
+                title=" Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. "
+                arrow
+                placement="right-start"
+                sx={{ m: 1 }}
+              >
+                <IconButton onClick={() => setOpen(true)}>
+                  {" "}
+                  <FontAwesomeIcon icon={faExternalLink} className="h-5  " />
+                </IconButton>
+              </Tooltip>
+            </ClickAwayListener>
           </span>
           <div className="ml-auto ">
             <button
-              className="btn bg-[#8635B0] text-white outline-none hover:bg-[#722b95] border-none"
+              className=" py-2 px-3 rounded-sm font-semibold bg-[#8635B0] text-white outline-none hover:bg-[#722b95] border-none"
               onClick={() => setToggleModal(true)}
             >
               <FontAwesomeIcon icon={faBrain} className="mr-4 h-5" />
@@ -46,90 +216,54 @@ const JobsComponent = () => {
               aria-describedby="modal-modal-description"
               className="flex justify-center items-center"
             >
-              <div className="w-[900px] h-[500px] bg-white rounded-lg">
-                <div className="border-b-2 p-8 flex w-full items-center">
-                  <span className="text-xl font-semibold">
-                    Ethiion Recruiter
-                  </span>
-                  <IconButton
-                    className="ml-auto"
-                    onClick={() => setToggleModal(false)}
-                  >
-                    <CloseIcon />
-                  </IconButton>
-                </div>
+              <div className="w-[600px] h-[400px] bg-white rounded-lg">
+                <div className="h-full w-full flex flex-col ">
+                  <div className="border-b-2 p-3 flex w-full items-center">
+                    <span className="text-xl font-semibold">
+                      Ethiion Recruiter
+                    </span>
+                    <IconButton
+                      className="ml-auto"
+                      onClick={() => setToggleModal(false)}
+                    >
+                      <CloseIcon />
+                    </IconButton>
+                  </div>
 
-                <div className="flex flex-col p-10 text-xl font-semibold">
-                  <span>Select from Active Jobs</span>
+                  <div className="flex flex-col h-full p-10 text-xl font-semibold">
+                    <span>Select from Active Jobs</span>
 
-                  <FormGroup className="mt-10">
-                    <FormControlLabel
-                      control={<Checkbox />}
-                      label="Customer Support Representative (CSR)"
-                    />
-                    <FormControlLabel
-                      control={<Checkbox />}
-                      label="Technical Support Representative (TSR)"
-                    />
-                  </FormGroup>
+                    <FormGroup className="mt-10">
+                      <FormControlLabel
+                        control={<Checkbox />}
+                        label="Customer Support Representative (CSR)"
+                      />
+                      <FormControlLabel
+                        control={<Checkbox />}
+                        label="Technical Support Representative (TSR)"
+                      />
+                    </FormGroup>
 
-                  <button
-                    className="btn mt-[100px] bg-[#8635B0] text-white outline-none hover:bg-[#722b95] border-none"
-                    onClick={() => setToggleModal(true)}
-                  >
-                    Apply Filters
-                  </button>
+                    <button
+                      className="btn mt-auto bg-[#8635B0] text-white outline-none hover:bg-[#722b95] border-none"
+                      onClick={() => setToggleModal(true)}
+                    >
+                      Apply Filters
+                    </button>
+                  </div>
                 </div>
               </div>
             </Modal>
-            <button className="btn ml-4 bg-[#02A882] text-white outline-none hover:bg-[#038466] border-none">
+            <button className="py-2 px-3 rounded-sm font-semibold ml-4 bg-[#02A882] text-white outline-none hover:bg-[#038466] border-none">
               <FontAwesomeIcon icon={faRocket} className="h-5 mr-4" />
               Create Job
             </button>
           </div>
         </div>
 
-        <div className="overflow-x-auto">
-          <table className=" w-full bg-white rounded-2xl border-separate border-spacing-7">
-            {/* <!-- head --> */}
-            <thead className="text-slate-400 ">
-              <tr className="">
-                <th>Candidate</th>
-                <th>Job Title</th>
-                <th>Application Date</th>
-                <th className="flex">Stages </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  {" "}
-                  <a href="/#" className="text-indigo-600 underline italic">
-                    Cy Ganderton
-                  </a>{" "}
-                </td>
-                <td>Quality Control Specialist</td>
-                <td>Blue</td>
-                <td>
-                  <button className="btn no-animation bg-slate-200 border-none hover:bg-slate-200 font-normal capitalize rounded-[4px] tracking-wider mr-5 text-black">
-                    Applied
-                  </button>
-                  <button className="btn no-animation bg-slate-200 border-none hover:bg-slate-200 font-normal capitalize rounded-[4px] tracking-wider mr-5 text-black">
-                    h. Screen
-                  </button>
-                  <button className="btn no-animation bg-slate-200 border-none hover:bg-slate-200 font-normal capitalize rounded-[4px] tracking-wider mr-5 text-black">
-                    Assesment
-                  </button>
-                  <button className="btn no-animation bg-slate-200 border-none hover:bg-slate-200 font-normal capitalize rounded-[4px] tracking-wider mr-5 text-black">
-                    Interview
-                  </button>
-                  <button className="btn no-animation bg-slate-200 border-none hover:bg-slate-200 font-normal capitalize rounded-[4px] tracking-wider mr-5 text-black">
-                    offer
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div className=" w-full h-[500px] ">
+          <DataGrid rows={rows} columns={columns} />
+          <div></div>
         </div>
       </div>
 
@@ -142,146 +276,10 @@ const JobsComponent = () => {
 
           {/* TSR */}
 
-          <div className="w-[100%] min-h-[200px] mt-4  bg-white rounded-md p-7 ">
-            <div className="flex border-b-2 items-center pb-3">
-              <span className="italic text-xl font-bold underline mr-8">
-                TSR
-              </span>
-              <span className="text-slate-500">Kingsten, JM</span>
-              <div className="ml-auto">
-                <button className="btn bg-[#8635B0] text-white outline-none hover:bg-[#722b95] border-none">
-                  Local Candidate
-                </button>
-                <button className="btn ml-4 bg-[#02A882] text-white outline-none hover:bg-[#038466] border-none">
-                  publish
-                </button>
-              </div>
-            </div>
-
-            <div className="">
-              <div class="stats bg-[#f8f8f8]  m-4 min-w-[180px]">
-                <div class="stat px-10">
-                  <div class="stat-value text-black text-center font-medium">
-                    10
-                  </div>
-                  <div class="stat-title text-center text-xl text-slate-500 tracking-wide">
-                    Applied
-                  </div>
-                </div>
-              </div>
-              <div class="stats bg-[#f8f8f8] mr-3 m-4  min-w-[180px]">
-                <div class="stat px-10">
-                  <div class="stat-value text-black text-center font-medium">
-                    10
-                  </div>
-                  <div class="stat-title text-center text-xl text-slate-500 tracking-wide">
-                    Phone Screening
-                  </div>
-                </div>
-              </div>
-              <div class="stats bg-[#f8f8f8] mr-3 m-4  min-w-[180px]">
-                <div class="stat px-10">
-                  <div class="stat-value text-black text-center font-medium">
-                    10
-                  </div>
-                  <div class="stat-title text-center text-xl text-slate-500 tracking-wide">
-                    Assessment
-                  </div>
-                </div>
-              </div>{" "}
-              <div class="stats bg-[#f8f8f8] mr-3 m-4  min-w-[180px]">
-                <div class="stat px-10">
-                  <div class="stat-value text-black text-center font-medium">
-                    10
-                  </div>
-                  <div class="stat-title text-center text-xl text-slate-500 tracking-wide">
-                    Interview
-                  </div>
-                </div>
-              </div>{" "}
-              <div class="stats bg-[#f8f8f8] mr-3 m-4  min-w-[180px]">
-                <div class="stat px-10">
-                  <div class="stat-value text-black text-center font-medium">
-                    10
-                  </div>
-                  <div class="stat-title text-center text-xl text-slate-500 tracking-wide">
-                    Offer
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Jobs job="TSR" location="kingsten, JM" />
 
           {/* CSR */}
-          <div className="w-[100%] min-h-[200px] mt-4  bg-white rounded-md p-7 ">
-            <div className="flex border-b-2 items-center pb-3">
-              <span className="italic text-xl font-bold underline mr-8">
-                CSR
-              </span>
-              <span className="text-slate-500">Kingsten, JM</span>
-              <div className="ml-auto">
-                <button className="btn bg-[#8635B0] text-white outline-none hover:bg-[#722b95] border-none">
-                  Local Candidate
-                </button>
-                <button className="btn ml-4 bg-[#02A882] text-white outline-none hover:bg-[#038466] border-none">
-                  publish
-                </button>
-              </div>
-            </div>
-
-            <div className="">
-              <div class="stats bg-[#f8f8f8]  m-4 min-w-[180px]">
-                <div class="stat px-10">
-                  <div class="stat-value text-black text-center font-medium">
-                    10
-                  </div>
-                  <div class="stat-title text-center text-xl text-slate-500 tracking-wide">
-                    Applied
-                  </div>
-                </div>
-              </div>
-              <div class="stats bg-[#f8f8f8] mr-3 m-4  min-w-[180px]">
-                <div class="stat px-10">
-                  <div class="stat-value text-black text-center font-medium">
-                    10
-                  </div>
-                  <div class="stat-title text-center text-xl text-slate-500 tracking-wide">
-                    Phone Screening
-                  </div>
-                </div>
-              </div>
-              <div class="stats bg-[#f8f8f8] mr-3 m-4  min-w-[180px]">
-                <div class="stat px-10">
-                  <div class="stat-value text-black text-center font-medium">
-                    10
-                  </div>
-                  <div class="stat-title text-center text-xl text-slate-500 tracking-wide">
-                    Assessment
-                  </div>
-                </div>
-              </div>{" "}
-              <div class="stats bg-[#f8f8f8] mr-3 m-4  min-w-[180px]">
-                <div class="stat px-10">
-                  <div class="stat-value text-black text-center font-medium">
-                    10
-                  </div>
-                  <div class="stat-title text-center text-xl text-slate-500 tracking-wide">
-                    Interview
-                  </div>
-                </div>
-              </div>{" "}
-              <div class="stats bg-[#f8f8f8] mr-3 m-4  min-w-[180px]">
-                <div class="stat px-10">
-                  <div class="stat-value text-black text-center font-medium">
-                    10
-                  </div>
-                  <div class="stat-title text-center text-xl text-slate-500 tracking-wide">
-                    Offer
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Jobs job="CSR" location="kingsten, JM" />
         </div>
         {/* Activity Thread */}
         <div className="flex flex-col">
