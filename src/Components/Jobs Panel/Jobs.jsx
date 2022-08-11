@@ -82,7 +82,7 @@ const Jobs = ({ job, location }) => {
         <span className="text-slate-500 capitalize ">{location}</span>
         <div className="ml-auto">
           <button className="py-2 px-3 rounded-sm mr-3 font-semibold bg-[#8635B0] text-white outline-none hover:bg-[#722b95] border-none">
-            Local Candidate
+            Locate Candidate
           </button>
           <Button
             id="demo-customized-button"
@@ -95,7 +95,7 @@ const Jobs = ({ job, location }) => {
             endIcon={<KeyboardArrowDownIcon />}
             className="shadow-none bg-[#02a882] hover:bg-[#24b492] rounded-sm py-2 px-3"
           >
-            Options
+            Publish
           </Button>
           <StyledMenu
             id="demo-customized-menu"

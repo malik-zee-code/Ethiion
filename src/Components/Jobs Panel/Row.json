@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "Candidate": "Zeeshan",
+        "JobTitle": "TSR",
+        "ApplicationDate": "12/23/22",
+        "Stages": "Interview"
+    },
+    {
+        "id": 2,
+        "Candidate": "Zain",
+        "JobTitle": "CSR",
+        "ApplicationDate": "12/23/22",
+        "Stages": "Offer"
+    },
+    {
+        "id": 3,
+        "Candidate": "Sheldon",
+        "JobTitle": "TSR",
+        "ApplicationDate": "12/23/22",
+        "Stages": "Applied"
+    },
+    {
+        "id": 4,
+        "Candidate": "Ahmad",
+        "JobTitle": "TSR",
+        "ApplicationDate": "12/23/22",
+        "Stages": "Interview"
+    },
+    {
+        "id": 5,
+        "Candidate": "Ahmad",
+        "JobTitle": "CSR",
+        "ApplicationDate": "12/23/22",
+        "Stages": "H. Screen"
+    },
+    {
+        "id": 6,
+        "Candidate": "Zeeshan",
+        "JobTitle": "TSR",
+        "ApplicationDate": "12/23/22",
+        "Stages": "Interview"
+    },
+    {
+        "id": 7,
+        "Candidate": "Zain",
+        "JobTitle": "CSR",
+        "ApplicationDate": "12/23/22",
+        "Stages": "Offer"
+    },
+    {
+        "id": 8,
+        "Candidate": "Sheldon",
+        "JobTitle": "TSR",
+        "ApplicationDate": "12/23/22",
+        "Stages": "Applied"
+    },
+    {
+        "id": 9,
+        "Candidate": "Ahmad",
+        "JobTitle": "TSR",
+        "ApplicationDate": "12/23/22",
+        "Stages": "Interview"
+    },
+    {
+        "id": 10,
+        "Candidate": "Ahmad",
+        "JobTitle": "CSR",
+        "ApplicationDate": "12/23/22",
+        "Stages": "H. Screen"
+    }
+]

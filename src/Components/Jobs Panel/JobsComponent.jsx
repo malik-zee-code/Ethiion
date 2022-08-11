@@ -4,9 +4,9 @@ import {
   faRocket,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FilterAlt } from "@mui/icons-material";
 import CloseIcon from "@mui/icons-material/Close";
 import {
-  Button,
   Checkbox,
   ClickAwayListener,
   FormControlLabel,
@@ -21,63 +21,17 @@ import { useState } from "react";
 import Alert from "./AlertComp";
 import CandidateStats from "./CandidateStats";
 import Jobs from "./Jobs";
+import rows from "./Row.json";
 
 const JobsComponent = () => {
   const [toggleModal, setToggleModal] = useState(false);
   const [open, setOpen] = useState(false);
-
-  const stage = ["Interview", "Offer", "Applied,Assesment, H. Screen"];
-
-  const rows = [
-    {
-      id: 1,
-      Candidate: "Zeeshan",
-      JobTitle: "TSR",
-      ApplicationDate: "12/23/22",
-      Stages: "Interview",
-    },
-    {
-      id: 2,
-      Candidate: "Zain",
-      JobTitle: "CSR",
-      ApplicationDate: "12/23/22",
-      Stages: "Offer",
-    },
-    {
-      id: 3,
-      Candidate: "Sheldon",
-      JobTitle: "TSR",
-      ApplicationDate: "12/23/22",
-      Stages: "Applied",
-    },
-    {
-      id: 4,
-      Candidate: "Ahmad",
-      JobTitle: "TSR",
-      ApplicationDate: "12/23/22",
-      Stages: "Interview",
-    },
-    {
-      id: 5,
-      Candidate: "Ahmad",
-      JobTitle: "CSR",
-      ApplicationDate: "12/23/22",
-      Stages: "H. Screen",
-    },
-    {
-      id: 6,
-      Candidate: "Ali",
-      JobTitle: "CSR",
-      ApplicationDate: "12/23/22",
-      Stages: "Assesment",
-    },
-  ];
+  const [pageSize, setPageSize] = React.useState(5);
 
   const columns = [
     {
       field: "id",
       headerName: "id",
-      flex: 1,
       maxWidth: 50,
       description: "Row number",
       headerAlign: "left",
@@ -85,24 +39,21 @@ const JobsComponent = () => {
     {
       field: "Candidate",
       headerName: "Candidate",
-      flex: 1,
-      maxWidth: 300,
+      minWidth: 200,
       description: "Candidate Name",
       headerAlign: "left",
     },
     {
       field: "JobTitle",
       headerName: "Job Title",
-      flex: 1,
-      maxWidth: 300,
+      minWidth: 200,
       description: "Job Title",
       headerAlign: "left",
     },
     {
       field: "ApplicationDate",
       headerName: "Application Date",
-      flex: 1,
-      maxWidth: 300,
+      minWidth: 200,
       description: "Application Date",
       headerAlign: "left",
     },
@@ -110,7 +61,7 @@ const JobsComponent = () => {
       field: "Stages",
       headerName: "Stages",
       flex: 1,
-      minWidth: 50,
+      minWidth: 650,
       description: "Stages",
       headerAlign: "left",
 
@@ -124,7 +75,7 @@ const JobsComponent = () => {
                 value === "Applied"
                   ? "bg-indigo-500 text-white hover:bg-indigo-600"
                   : "bg-slate-200 hover:bg-slate-200"
-              }   border-none  font-normal capitalize rounded-[4px] tracking-wider mr-5 text-black`}
+              }   border-none  font-normal capitalize rounded-full tracking-wider mr-5 text-black `}
             >
               Applied
             </button>
@@ -133,7 +84,7 @@ const JobsComponent = () => {
                 value === "H. Screen"
                   ? "bg-indigo-500 text-white hover:bg-indigo-600"
                   : "bg-slate-200 hover:bg-slate-200"
-              } border-none  font-normal capitalize rounded-[4px] tracking-wider mr-5 text-black`}
+              } border-none  font-normal capitalize rounded-full tracking-wider mr-5 text-black`}
             >
               h. Screen
             </button>
@@ -142,7 +93,7 @@ const JobsComponent = () => {
                 value === "Assesment"
                   ? "bg-indigo-500 text-white hover:bg-indigo-600"
                   : "bg-slate-200 hover:bg-slate-200"
-              }  border-none font-normal capitalize rounded-[4px] tracking-wider mr-5 text-black`}
+              }  border-none font-normal capitalize rounded-full tracking-wider mr-5 text-black`}
             >
               Assesment
             </button>
@@ -151,7 +102,7 @@ const JobsComponent = () => {
                 value === "Interview"
                   ? "bg-indigo-500 text-white hover:bg-indigo-600"
                   : "bg-slate-200 hover:bg-slate-200"
-              } border-none font-normal capitalize rounded-[4px] tracking-wider mr-5 text-black`}
+              } border-none font-normal capitalize rounded-full tracking-wider mr-5 text-black`}
             >
               Interview
             </button>
@@ -160,7 +111,7 @@ const JobsComponent = () => {
                 value === "Offer"
                   ? "bg-indigo-500 text-white hover:bg-indigo-600"
                   : "bg-slate-200 hover:bg-slate-200"
-              }  border-none font-normal capitalize rounded-[4px] tracking-wider mr-5 text-black`}
+              }  border-none font-normal capitalize rounded-full tracking-wider mr-5 text-black`}
             >
               offer
             </button>
@@ -176,7 +127,7 @@ const JobsComponent = () => {
       <div>
         <div className="flex mb-6">
           {" "}
-          <span className="text-3xl tracking-wide font-bold font-sans ">
+          <span className="text-2xl tracking-wide font-bold font-sans ">
             Zircone Industries{" "}
             <ClickAwayListener onClickAway={() => setOpen(false)}>
               <Tooltip
@@ -195,7 +146,7 @@ const JobsComponent = () => {
               >
                 <IconButton onClick={() => setOpen(true)}>
                   {" "}
-                  <FontAwesomeIcon icon={faExternalLink} className="h-5  " />
+                  <FontAwesomeIcon icon={faExternalLink} className="h-4  " />
                 </IconButton>
               </Tooltip>
             </ClickAwayListener>
@@ -261,9 +212,23 @@ const JobsComponent = () => {
           </div>
         </div>
 
-        <div className=" w-full h-[500px] ">
-          <DataGrid rows={rows} columns={columns} />
-          <div></div>
+        <div className=" w-full h-[500px] flex">
+          <DataGrid
+            rows={rows}
+            columns={columns}
+            pageSize={pageSize}
+            onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
+            rowsPerPageOptions={[5, 10, 20]}
+          />
+          {/* Activity Thread */}
+          <div className="h-[200px] w-[400px] flex rounded-md bg-[#fff] ml-5">
+            <div className="w-full h-[50px] bg-slate-300 p-2 flex items-center">
+              <span className="font-semibold">Activity Thread</span>
+              <IconButton className="ml-auto">
+                <FilterAlt />
+              </IconButton>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -271,62 +236,24 @@ const JobsComponent = () => {
         {/* JOBS */}
         <div className="flex flex-col">
           <div className="flex">
-            <span className="text-3xl font-bold ">Jobs</span>
+            <span className="text-2xl font-bold ">Jobs</span>
           </div>
-
           {/* TSR */}
-
           <Jobs job="TSR" location="kingsten, JM" />
-
           {/* CSR */}
           <Jobs job="CSR" location="kingsten, JM" />
         </div>
         {/* Activity Thread */}
         <div className="flex flex-col">
           <div className="flex items-center">
-            <span className="text-3xl font-bold">Activity Thread</span>
+            <span className="text-2xl font-bold">Activity Thread</span>
             <span className="text-xl text-slate-500 ml-auto underline">
               Alert
             </span>
           </div>
 
           <div className="bg-white h-full rounded-md  mt-4 flex ">
-            {/* side bar */}
-            <div className="w-[200px] p-4 bg-[#F3F3F3] h-full flex flex-col flex-none">
-              <button className="font-bold mb-3">Filters</button>
-              <div className="flex flex-col">
-                <span className="uppercase font-bold ">Automated Actions</span>
-                <button className=" mt-3 rounded-full bg-[#e9e9e9] py-2 font-bold text-[#c4c3c3]">
-                  Past
-                </button>
-                <button className=" mt-3 rounded-full bg-[#e9e9e9] py-2 font-bold text-[#c4c3c3]">
-                  Failed
-                </button>
-              </div>
-              <div className="flex flex-col">
-                <span className="uppercase font-bold ">Jobs</span>
-                <button className=" mt-3 rounded-full bg-[#e9e9e9] py-2 font-bold text-[#c4c3c3]">
-                  Internal
-                </button>
-                <button className=" mt-3 rounded-full bg-[#e9e9e9] py-2 font-bold text-[#c4c3c3]">
-                  Bulk
-                </button>
-                <button className=" mt-3 rounded-full bg-[#e9e9e9] py-2 font-bold text-[#c4c3c3]">
-                  Bulk
-                </button>
-              </div>
-              <div className="flex flex-col">
-                <span className="uppercase font-bold ">Jobs</span>
-                <button className=" mt-3 rounded-full bg-[#e9e9e9] py-2 font-bold text-[#c4c3c3]">
-                  Internal
-                </button>
-                <button className=" mt-3 rounded-full bg-[#e9e9e9] py-2 font-bold text-[#c4c3c3]">
-                  Bulk
-                </button>
-              </div>
-            </div>
             {/* Alerts */}
-
             <div className="flex-1">
               <Alert title="Launch Date" btnTitle="Go To inbox" />
               <Alert title="Marked the Interview" btnTitle="Change Status" />
