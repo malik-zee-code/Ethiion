@@ -10,6 +10,9 @@ import Reports from "./pages/Reports/Reports";
 import ThemeProvider from "./theme";
 import { ToastContainer } from "react-toastify";
 import Csr from "./pages/CSR/Csr";
+import CandidateInspection from "./Components/Jobs Panel/CandidateInspection";
+import Sources from "./Components/Jobs Panel/Sources";
+import TeamTracker from "./Components/Jobs Panel/TeamTracker";
 
 const App = () => {
   return (
@@ -23,7 +26,14 @@ const App = () => {
           <Route path="/reports/*" element={<Reports />} />
           <Route path="/applications/*" element={<Application />} />
           <Route path="/candidate/*" element={<Candidate />} />
-          <Route path="/jobs/*" element={<Jobs />} />
+          <Route path="/jobs/*" element={<Jobs />}>
+            <Route
+              path="candidate/inspection"
+              element={<CandidateInspection />}
+            />
+            <Route path="candidate/sources" element={<Sources />} />
+            <Route path="candidate/team-tracker" element={<TeamTracker />} />
+          </Route>
           <Route path="/csr/*" element={<Csr />} />
         </Routes>
       </div>

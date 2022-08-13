@@ -80,7 +80,7 @@ const CandidateSurvivedata = {
   datasets: [
     {
       label: "# of Votes",
-      data: [13, 15, 16, 24, 27, 5],
+      data: [13, 15, 16, 24, 27, 10],
       backgroundColor: [
         "rgb(139, 68, 124)",
         "rgb(98, 55, 111)",

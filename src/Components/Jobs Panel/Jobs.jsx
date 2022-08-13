@@ -5,7 +5,6 @@ import Stats from "../Stats";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { styled, alpha } from "@mui/material/styles";
-import EditIcon from "@mui/icons-material/Edit";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Archive, Edit, Logout, Preview, Upload } from "@mui/icons-material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -74,7 +73,7 @@ const Jobs = ({ job, location }) => {
   };
 
   return (
-    <div className="w-[100%] min-h-[150px] mt-4  bg-white rounded-md p-7 ">
+    <div className="w-[100%] min-h-[150px] mt-4  bg-white rounded-md p-7 mr-2 ">
       <div className="flex border-b-2 items-center pb-3">
         <span className="italic text-[16px] font-bold underline mr-8 uppercase">
           {job}
@@ -120,7 +119,7 @@ const Jobs = ({ job, location }) => {
             aria-expanded={moreopen ? "true" : undefined}
             aria-haspopup="true"
             onClick={morehandleClick}
-            className='ml-3'
+            className="ml-3"
           >
             <MoreVertIcon />
           </IconButton>
@@ -174,31 +173,31 @@ const Jobs = ({ job, location }) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-3">
+      <div className="grid grid-cols-5">
         <Stats
           title="Applied"
           value="10"
-          className="bg-[#f8f8f8]  m-4 min-w-[180px] h-[150px] flex items-center"
+          className="bg-white border-y-4  m-4  flex items-center"
         />
         <Stats
           title="Phone Screening"
           value="10"
-          className="bg-[#f8f8f8]  m-4 min-w-[180px] h-[150px] flex items-center"
+          className="bg-white border-y-4  m-4  flex items-center"
         />
         <Stats
           title="Assessment"
           value="10"
-          className="bg-[#f8f8f8]  m-4 min-w-[180px] h-[150px] flex items-center"
+          className="bg-white border-y-4  m-4  flex items-center"
         />
         <Stats
           title="Interview"
           value="10"
-          className="bg-[#f8f8f8]  m-4 min-w-[180px] h-[150px] flex items-center"
+          className="bg-white border-y-4  m-4  flex items-center"
         />
         <Stats
           title="Offer"
           value="10"
-          className="bg-[#f8f8f8]  m-4 min-w-[180px] h-[150px] flex items-center"
+          className="bg-white border-y-4  m-4  flex items-center"
         />
       </div>
     </div>

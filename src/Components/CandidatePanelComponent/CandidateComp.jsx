@@ -10,6 +10,7 @@ import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
 import EditIcon from "@mui/icons-material/Edit";
 import { styled } from "@mui/material/styles";
+import { Link } from "react-router-dom";
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -43,12 +44,6 @@ const StyledMenu = styled((props) => (
         color: theme.palette.text.secondary,
         marginRight: theme.spacing(1.5),
       },
-      //   "&:active": {
-      //     backgroundColor: alpha(
-      //       theme.palette.primary.main,
-      //       theme.palette.action.selectedOpacity
-      //     ),
-      //   },
     },
   },
 }));
@@ -66,7 +61,7 @@ const CandidateComp = () => {
     <div className="mt-6">
       <div className="w-full h-[400px] flex flex-col">
         <div className=" flex mt-4">
-          <button className="ml-auto p-3 bg-[#02a882] font-semibold text-white rounded-md mr-3">
+          <button className="ml-auto px-3 py-2 bg-[#02a882] hover:bg-[#33967f]  font-semibold text-white rounded-md mr-3">
             Add Candidate
           </button>
         </div>
@@ -154,10 +149,16 @@ const CandidateComp = () => {
                   <td>
                     {" "}
                     <a href="/#" className="text-indigo-600 underline italic">
-                      Cy Ganderton
+                      Zain
                     </a>{" "}
                   </td>
-                  <td>Quality Control Specialist</td>
+                  <td>
+                    {" "}
+                    <Link to={"/csr"} className="text-indigo-600">
+                      {" "}
+                      CSR
+                    </Link>
+                  </td>
                   <td>
                     <button className="px-3 py-2 text-white font-medium no-animation bg-[#8635b0] border-none  capitalize rounded-[4px] tracking-wider mr-5">
                       Interview
@@ -172,6 +173,74 @@ const CandidateComp = () => {
                     />
                   </td>
                   <td>25 Oct, 2022</td>
+                  <td>
+                    <IconButton aria-label="delete">
+                      <RemoveRedEyeIcon />
+                    </IconButton>
+                  </td>
+                  <td>
+                    <Button
+                      id="demo-customized-button"
+                      aria-controls={open ? "demo-customized-menu" : undefined}
+                      aria-haspopup="true"
+                      aria-expanded={open ? "true" : undefined}
+                      disableElevation
+                      onClick={handleClick}
+                      className="shadow-none text-black rounded-full  h-[50px] p-1"
+                    >
+                      <FontAwesomeIcon icon={faEllipsis} />
+                    </Button>
+                    <StyledMenu
+                      id="demo-customized-menu"
+                      MenuListProps={{
+                        "aria-labelledby": "demo-customized-button",
+                      }}
+                      anchorEl={anchorEl}
+                      open={open}
+                      onClose={handleClose}
+                      className="shadow-lg shadow-black"
+                    >
+                      <MenuItem onClick={handleClose} disableRipple>
+                        <EditIcon />
+                        Edit
+                      </MenuItem>
+                      <MenuItem onClick={handleClose} disableRipple>
+                        <FileCopyIcon />
+                        Duplicate
+                      </MenuItem>
+                    </StyledMenu>
+                  </td>
+                </tr>
+                {/* 2 */}
+
+                <tr>
+                  <td>
+                    {" "}
+                    <a href="/#" className="text-indigo-600 underline italic">
+                      Sheldon
+                    </a>{" "}
+                  </td>
+                  <td>
+                    {" "}
+                    <Link to={"/csr"} className="text-indigo-600">
+                      {" "}
+                      TSR
+                    </Link>
+                  </td>
+                  <td>
+                    <button className="px-3 py-2 text-white font-medium no-animation bg-[#8635b0] border-none  capitalize rounded-[4px] tracking-wider mr-5">
+                      Interview
+                    </button>
+                  </td>
+                  <td>
+                    <Rating
+                      name="size-large"
+                      defaultValue={2.5}
+                      precision={0.5}
+                      readOnly
+                    />
+                  </td>
+                  <td>13 Apr, 2001</td>
                   <td>
                     <IconButton aria-label="delete">
                       <RemoveRedEyeIcon />

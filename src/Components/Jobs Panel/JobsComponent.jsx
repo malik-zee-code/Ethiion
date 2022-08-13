@@ -23,103 +23,153 @@ import CandidateStats from "./CandidateStats";
 import Jobs from "./Jobs";
 import rows from "./Row.json";
 
+import { useTheme } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import Chip from "@mui/material/Chip";
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
+  },
+};
+function getStyles(name, personName, theme) {
+  return {
+    fontWeight:
+      personName.indexOf(name) === -1
+        ? theme.typography.fontWeightRegular
+        : theme.typography.fontWeightMedium,
+  };
+}
+
+const names = [
+  "By Zeeshan's Activity",
+  "By Sheldon's Activity",
+  "By Zain's Activity",
+];
+
+const columns = [
+  {
+    field: "id",
+    headerName: "id",
+    maxWidth: 50,
+    description: "Row number",
+    headerAlign: "left",
+  },
+  {
+    field: "Candidate",
+    headerName: "Candidate",
+    minWidth: 200,
+    description: "Candidate Name",
+    headerAlign: "left",
+  },
+  {
+    field: "JobTitle",
+    headerName: "Job Title",
+    minWidth: 200,
+    description: "Job Title",
+    headerAlign: "left",
+  },
+  {
+    field: "ApplicationDate",
+    headerName: "Application Date",
+    minWidth: 200,
+    description: "Application Date",
+    headerAlign: "left",
+  },
+  {
+    field: "Stages",
+    headerName: "Stages",
+    flex: 1,
+    minWidth: 650,
+    description: "Stages",
+    headerAlign: "left",
+
+    renderCell: (params) => {
+      const value = params.value;
+      console.log(value);
+      return (
+        <>
+          <button
+            className={`btn no-animation ${
+              value === "Applied"
+                ? "bg-indigo-500 text-white hover:bg-indigo-600"
+                : "bg-slate-200 hover:bg-slate-200"
+            }   border-none  font-normal capitalize rounded-full tracking-wider mr-5 text-black `}
+          >
+            Applied
+          </button>
+          <button
+            className={`btn no-animation ${
+              value === "H. Screen"
+                ? "bg-indigo-500 text-white hover:bg-indigo-600"
+                : "bg-slate-200 hover:bg-slate-200"
+            } border-none  font-normal capitalize rounded-full tracking-wider mr-5 text-black`}
+          >
+            h. Screen
+          </button>
+          <button
+            className={`btn no-animation ${
+              value === "Assesment"
+                ? "bg-indigo-500 text-white hover:bg-indigo-600"
+                : "bg-slate-200 hover:bg-slate-200"
+            }  border-none font-normal capitalize rounded-full tracking-wider mr-5 text-black`}
+          >
+            Assesment
+          </button>
+          <button
+            className={`btn no-animation ${
+              value === "Interview"
+                ? "bg-indigo-500 text-white hover:bg-indigo-600"
+                : "bg-slate-200 hover:bg-slate-200"
+            } border-none font-normal capitalize rounded-full tracking-wider mr-5 text-black`}
+          >
+            Interview
+          </button>
+          <button
+            className={`btn no-animation ${
+              value === "Offer"
+                ? "bg-indigo-500 text-white hover:bg-indigo-600"
+                : "bg-slate-200 hover:bg-slate-200"
+            }  border-none font-normal capitalize rounded-full tracking-wider mr-5 text-black`}
+          >
+            offer
+          </button>
+        </>
+      );
+    },
+  },
+];
+
 const JobsComponent = () => {
   const [toggleModal, setToggleModal] = useState(false);
   const [open, setOpen] = useState(false);
   const [pageSize, setPageSize] = React.useState(5);
+  const [filterToggle, setFilterToggle] = useState(false);
+  const [personName, setPersonName] = React.useState([]);
 
-  const columns = [
-    {
-      field: "id",
-      headerName: "id",
-      maxWidth: 50,
-      description: "Row number",
-      headerAlign: "left",
-    },
-    {
-      field: "Candidate",
-      headerName: "Candidate",
-      minWidth: 200,
-      description: "Candidate Name",
-      headerAlign: "left",
-    },
-    {
-      field: "JobTitle",
-      headerName: "Job Title",
-      minWidth: 200,
-      description: "Job Title",
-      headerAlign: "left",
-    },
-    {
-      field: "ApplicationDate",
-      headerName: "Application Date",
-      minWidth: 200,
-      description: "Application Date",
-      headerAlign: "left",
-    },
-    {
-      field: "Stages",
-      headerName: "Stages",
-      flex: 1,
-      minWidth: 650,
-      description: "Stages",
-      headerAlign: "left",
+  const theme = useTheme();
 
-      renderCell: (params) => {
-        const value = params.value;
-        console.log(value);
-        return (
-          <>
-            <button
-              className={`btn no-animation ${
-                value === "Applied"
-                  ? "bg-indigo-500 text-white hover:bg-indigo-600"
-                  : "bg-slate-200 hover:bg-slate-200"
-              }   border-none  font-normal capitalize rounded-full tracking-wider mr-5 text-black `}
-            >
-              Applied
-            </button>
-            <button
-              className={`btn no-animation ${
-                value === "H. Screen"
-                  ? "bg-indigo-500 text-white hover:bg-indigo-600"
-                  : "bg-slate-200 hover:bg-slate-200"
-              } border-none  font-normal capitalize rounded-full tracking-wider mr-5 text-black`}
-            >
-              h. Screen
-            </button>
-            <button
-              className={`btn no-animation ${
-                value === "Assesment"
-                  ? "bg-indigo-500 text-white hover:bg-indigo-600"
-                  : "bg-slate-200 hover:bg-slate-200"
-              }  border-none font-normal capitalize rounded-full tracking-wider mr-5 text-black`}
-            >
-              Assesment
-            </button>
-            <button
-              className={`btn no-animation ${
-                value === "Interview"
-                  ? "bg-indigo-500 text-white hover:bg-indigo-600"
-                  : "bg-slate-200 hover:bg-slate-200"
-              } border-none font-normal capitalize rounded-full tracking-wider mr-5 text-black`}
-            >
-              Interview
-            </button>
-            <button
-              className={`btn no-animation ${
-                value === "Offer"
-                  ? "bg-indigo-500 text-white hover:bg-indigo-600"
-                  : "bg-slate-200 hover:bg-slate-200"
-              }  border-none font-normal capitalize rounded-full tracking-wider mr-5 text-black`}
-            >
-              offer
-            </button>
-          </>
-        );
-      },
-    },
-  ];
+  const handleChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setPersonName(
+      // On autofill we get a stringified value.
+      typeof value === "string" ? value.split(",") : value
+    );
+  };
+
+ 
 
   return (
     <div className="">
@@ -221,46 +271,111 @@ const JobsComponent = () => {
             rowsPerPageOptions={[5, 10, 20]}
           />
           {/* Activity Thread */}
-          <div className="h-[200px] w-[400px] flex rounded-md bg-[#fff] ml-5">
-            <div className="w-full h-[50px] bg-slate-300 p-2 flex items-center">
-              <span className="font-semibold">Activity Thread</span>
-              <IconButton className="ml-auto">
-                <FilterAlt />
-              </IconButton>
+          <div className="max-h-[400px] w-[400px] flex flex-col rounded-md bg-[#fff] ml-5 ">
+            <div className="w-full h-[50px] bg-slate-300  rounded-t-md">
+              <div className="flex items-center p-2">
+                <span className="font-semibold">Activity Thread</span>
+                <IconButton
+                  className="ml-auto"
+                  onClick={() => setFilterToggle(!filterToggle)}
+                >
+                  <FilterAlt />
+                </IconButton>
+              </div>
+            </div>
+            {filterToggle && (
+              <div className="w-full my-1 bg-slate-300 flex justify-center ">
+                <FormControl className="w-full bg-white">
+                  <InputLabel id="demo-multiple-chip-label">Filter</InputLabel>
+                  <Select
+                    className=" bg-white"
+                    multiple
+                    value={personName}
+                    onChange={handleChange}
+                    input={
+                      <OutlinedInput
+                        id="select-multiple-chip"
+                        label="Chip"
+                        className="bg-white"
+                      />
+                    }
+                    renderValue={(selected) => (
+                      <Box
+                        sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}
+                        className="bg-white"
+                      >
+                        {selected.map((value) => (
+                          <Chip key={value} label={value} />
+                        ))}
+                      </Box>
+                    )}
+                    MenuProps={MenuProps}
+                  >
+                    {names.map((name) => (
+                      <MenuItem
+                        key={name}
+                        value={name}
+                        style={getStyles(name, personName, theme)}
+                      >
+                        {name}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </div>
+            )}
+            <div className="flex flex-col h-full overflow-x-auto p-2">
+              <Alert
+                title="Launch Date"
+                btnTitle="Go To inbox"
+                titleClassName="text-md"
+                btnClassName="text-xs"
+              />
+              <Alert
+                title="Marked the Interview"
+                btnTitle="Change Status"
+                titleClassName="text-md"
+                btnClassName="text-xs"
+              />
+              <Alert
+                title="Launch Date"
+                btnTitle="Go To inbox"
+                titleClassName="text-md"
+                btnClassName="text-xs"
+              />
+              <Alert
+                title="Marked the Interview"
+                btnTitle="Change Status"
+                titleClassName="text-md"
+                btnClassName="text-xs"
+              />
+              <Alert
+                title="Marked the Interview"
+                btnTitle="Change Status"
+                titleClassName="text-md"
+                btnClassName="text-xs"
+              />
+              <Alert
+                title="Marked the Interview"
+                btnTitle="Change Status"
+                titleClassName="text-md"
+                btnClassName="text-xs"
+              />
             </div>
           </div>
         </div>
       </div>
 
-      <div className="mt-10 grid grid-cols-2 gap-6">
+      <div className="mt-10 grid  gap-6">
         {/* JOBS */}
-        <div className="flex flex-col">
-          <div className="flex">
-            <span className="text-2xl font-bold ">Jobs</span>
-          </div>
+        <div className="flex">
+          <span className="text-2xl font-bold ">Jobs</span>
+        </div>
+        <div className="flex  ">
           {/* TSR */}
           <Jobs job="TSR" location="kingsten, JM" />
           {/* CSR */}
           <Jobs job="CSR" location="kingsten, JM" />
-        </div>
-        {/* Activity Thread */}
-        <div className="flex flex-col">
-          <div className="flex items-center">
-            <span className="text-2xl font-bold">Activity Thread</span>
-            <span className="text-xl text-slate-500 ml-auto underline">
-              Alert
-            </span>
-          </div>
-
-          <div className="bg-white h-full rounded-md  mt-4 flex ">
-            {/* Alerts */}
-            <div className="flex-1">
-              <Alert title="Launch Date" btnTitle="Go To inbox" />
-              <Alert title="Marked the Interview" btnTitle="Change Status" />
-              <Alert title="Launch Date" btnTitle="Go To inbox" />
-              <Alert title="Marked the Interview" btnTitle="Change Status" />
-            </div>
-          </div>
         </div>
       </div>
 

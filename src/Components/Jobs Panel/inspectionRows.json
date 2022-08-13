@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "Name": "Zeeshan",
+        "Job": "TSR",
+        "Email": "zeeshan@gmail.com",
+        "Phone": "+1 (234) 8734928",
+        "stage": "Interview",
+        "ApplicationDate": "12/23/22"
+    },
+    {
+        "id": 2,
+        "Name": "Zain",
+        "Job": "CSR",
+        "Email": "zeeshan@gmail.com",
+        "Phone": "+1 (234) 8734928",
+        "stage": "Offer",
+        "ApplicationDate": "12/23/22"
+    },
+    {
+        "id": 3,
+        "Name": "Sheldon",
+        "Job": "TSR",
+        "Email": "zeeshan@gmail.com",
+        "Phone": "+1 (234) 8734928",
+        "stage": "Interview",
+        "ApplicationDate": "12/23/22"
+    },
+    {
+        "id": 4,
+        "Name": "Ahmad",
+        "Job": "TSR",
+        "Email": "zeeshan@gmail.com",
+        "Phone": "+1 (234) 8734928",
+        "stage": "Interview",
+        "ApplicationDate": "12/23/22"
+    },
+    {
+        "id": 5,
+        "Name": "Ahmad",
+        "Job": "CSR",
+        "Email": "zeeshan@gmail.com",
+        "Phone": "+1 (234) 8734928",
+        "stage": "Assessment",
+        "ApplicationDate": "12/23/22"
+    },
+    {
+        "id": 6,
+        "Name": "Zeeshan",
+        "Job": "TSR",
+        "Email": "zeeshan@gmail.com",
+        "Phone": "+1 (234) 8734928",
+        "stage": "Applied",
+        "ApplicationDate": "12/23/22"
+    },
+    {
+        "id": 7,
+        "Name": "Zain",
+        "Job": "CSR",
+        "Email": "zeeshan@gmail.com",
+        "Phone": "+1 (234) 8734928",
+        "stage": "Assessment",
+        "ApplicationDate": "12/23/22"
+    },
+    {
+        "id": 8,
+        "Name": "Sheldon",
+        "Job": "TSR",
+        "Email": "zeeshan@gmail.com",
+        "Phone": "+1 (234) 8734928",
+        "stage": "Interview",
+        "ApplicationDate": "12/23/22"
+    },
+    {
+        "id": 9,
+        "Name": "Ahmad",
+        "Job": "TSR",
+        "Email": "zeeshan@gmail.com",
+        "Phone": "+1 (234) 8734928",
+        "stage": "Interview",
+        "ApplicationDate": "12/23/22"
+    },
+    {
+        "id": 10,
+        "Name": "Ahmad",
+        "Job": "CSR",
+        "Email": "zeeshan@gmail.com",
+        "Phone": "+1 (234) 8734928",
+        "stage": "Assessment",
+        "ApplicationDate": "12/23/22"
+    }
+]
