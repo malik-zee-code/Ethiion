@@ -10,9 +10,17 @@ import Reports from "./pages/Reports/Reports";
 import ThemeProvider from "./theme";
 import { ToastContainer } from "react-toastify";
 import Csr from "./pages/CSR/Csr";
-import CandidateInspection from "./Components/Jobs Panel/CandidateInspection";
-import Sources from "./Components/Jobs Panel/Sources";
-import TeamTracker from "./Components/Jobs Panel/TeamTracker";
+import CandidateInspection from "./Components/Graphs/CandidateInspection";
+import Sources from "./Components/Graphs/Sources";
+import TeamTracker from "./Components/Graphs/TeamTracker";
+import Pipeline from "./Components/Graphs/Pipeline";
+import Flow from "./Components/Graphs/Flow";
+import Velocity from "./Components/Graphs/Velocity";
+import Survival from "./Components/Graphs/Survival";
+import TimetoHire from "./Components/Graphs/TimetoHire";
+import HeadCount from "./Components/Graphs/HeadCount";
+import EntryandTermination from "./Components/Graphs/EntryandTermination";
+import Turnover from "./Components/Graphs/Turnover";
 
 const App = () => {
   return (
@@ -23,7 +31,22 @@ const App = () => {
         <Routes>
           <Route path="/admin/*" element={<Admin />} />
           <Route path="/dashboard/*" element={<DashBoard />} />
-          <Route path="/reports/*" element={<Reports />} />
+          <Route path="/reports/*" element={<Reports />}>
+            <Route
+              path="candidateInspection"
+              element={<CandidateInspection />}
+            />
+            <Route path="candidateSource" element={<Sources />} />
+            <Route path="candidateTeamTracker" element={<TeamTracker />} />
+            <Route path="candidatePipeline" element={<Pipeline />} />
+            <Route path="candidateflow" element={<Flow />} />
+            <Route path="candidateVelocity" element={<Velocity />} />
+            <Route path="candidateSurvival" element={<Survival />} />
+            <Route path="candidateHiring" element={<TimetoHire />} />
+            <Route path="employeeHeadcount" element={<HeadCount />} />
+            <Route path="employeeEntry" element={<EntryandTermination />} />
+            <Route path="employeeTurnover" element={<Turnover />} />
+          </Route>
           <Route path="/applications/*" element={<Application />} />
           <Route path="/candidate/*" element={<Candidate />} />
           <Route path="/jobs/*" element={<Jobs />}>

@@ -20,23 +20,20 @@ const data = {
     },
   ],
 };
-const Sources = () => {
+const Flow = () => {
   ChartJS.register(ArcElement, Tooltip, Legend);
 
   return (
-    <div className="flex h-full  w-full justify-center items-center p-10 ">
-      {" "}
-      <div className="w-[400px]">
-        <Doughnut
-          data={data}
-          className=""
-          options={{
-            indexAxis: "x",
-          }}
-        />
+    <>
+      <div className="m-10 text-xl font-semibold">Candidate Flow</div>
+      <div className="flex  w-full justify-center items-center p-10 ">
+        {" "}
+        <div className="w-[400px]">
+          <Doughnut data={data} />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default Sources;
+export default Flow;

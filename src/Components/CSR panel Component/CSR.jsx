@@ -7,19 +7,38 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import Stats from "../Stats";
 import person from "../../Assets/person1.jpg";
-import { Checkbox, IconButton } from "@mui/material";
+import {
+  Button,
+  Checkbox,
+  Fade,
+  IconButton,
+  Menu,
+  MenuItem,
+} from "@mui/material";
 import CardCSR from "../CardCSR";
 import Alert from "../Jobs Panel/AlertComp";
 import MenuIcon from "@mui/icons-material/Menu";
 import EmailIcon from "@mui/icons-material/Email";
-import LockIcon from "@mui/icons-material/Lock";
-import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
-import AutorenewIcon from "@mui/icons-material/Autorenew";
-import WebAssetIcon from "@mui/icons-material/WebAsset";
-import SplitscreenIcon from "@mui/icons-material/Splitscreen";
+import {
+  AddComment,
+  Assessment,
+  Close,
+  Event,
+  ExpandMore,
+  History,
+} from "@mui/icons-material";
+import ElevatorSharpIcon from "@mui/icons-material/ElevatorSharp";
 
 const CSR = () => {
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <div className="p-10">
@@ -30,10 +49,10 @@ const CSR = () => {
         </div>
 
         <div className="ml-auto">
-          <button className="btn ml-4 px-10 bg-[#02A882] text-white outline-none hover:bg-[#038466] border-none mr-7">
+          <button className=" font-semibold px-3 py-2 rounded-sm ml-4  bg-[#02A882] text-white outline-none hover:bg-[#038466] border-none mr-7">
             Add Candidate
           </button>
-          <button className="btn bg-[#8635B0] px-9 text-white outline-none hover:bg-[#722b95] border-none">
+          <button className="font-semibold px-3 py-2 rounded-sm bg-[#8635B0]  text-white outline-none hover:bg-[#722b95] border-none">
             Edit Job
           </button>
         </div>
@@ -119,34 +138,55 @@ const CSR = () => {
         <div className="flex flex-col w-full ml-5">
           <div className="flex w-full h-[60px] bg-white rounded-md p-3">
             <div className="flex w-full h-full items-center">
-              <IconButton aria-label="delete" className="h-10 mr-10">
+              <IconButton aria-label="delete" className="h-10 mr-5">
                 <MenuIcon />
               </IconButton>
-              <IconButton aria-label="delete" className="h-10 mr-10">
+              <IconButton aria-label="delete" className="h-10 mr-5">
                 <EmailIcon />
               </IconButton>
-              <IconButton aria-label="delete" className="h-10 mr-10">
-                <LockIcon />
+              <IconButton aria-label="delete" className="h-10 mr-5">
+                <AddComment />
               </IconButton>
-              <IconButton aria-label="delete" className="h-10 mr-10">
-                <AddAPhotoIcon />
+              <IconButton aria-label="delete" className="h-10 mr-5">
+                <ElevatorSharpIcon />
               </IconButton>
-              <IconButton aria-label="delete" className="h-10 mr-10">
-                <MenuIcon />
+              <IconButton aria-label="delete" className="h-10 mr-5">
+                <Close />
               </IconButton>
-              <IconButton aria-label="delete" className="h-10 mr-10">
-                <AutorenewIcon />
+              <IconButton aria-label="delete" className="h-10 mr-5">
+                <History />
               </IconButton>
-              <IconButton aria-label="delete" className="h-10 mr-10">
-                <WebAssetIcon />
+              <IconButton aria-label="delete" className="h-10 mr-5">
+                <Event />
               </IconButton>
-              <IconButton aria-label="delete" className="h-10 mr-10">
-                <SplitscreenIcon />
+              <IconButton aria-label="delete" className="h-10 mr-5">
+                <Assessment />
               </IconButton>
-              <button className="btn ml-auto bg-[#8635B0] px-9 text-white outline-none hover:bg-[#722b95] border-none">
+              <Button
+                id="fade-button"
+                aria-controls={open ? "fade-menu" : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? "true" : undefined}
+                onClick={handleClick}
+                className="ml-auto py-2 px-3  rounded-sm bg-[#02a882] text-white font-semibold hover:bg-[#129577]"
+              >
                 Move to Offers
-                <FontAwesomeIcon className="ml-6" icon={faAngleDown} />
-              </button>
+                <ExpandMore className="ml-2"/>
+              </Button>
+              <Menu
+                id="fade-menu"
+                MenuListProps={{
+                  "aria-labelledby": "fade-button",
+                }}
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                TransitionComponent={Fade}
+              >
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+              </Menu>
             </div>
           </div>
           <div className="bg-white h-full rounded-md   flex ">

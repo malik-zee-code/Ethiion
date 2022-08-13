@@ -177,27 +177,27 @@ const Jobs = ({ job, location }) => {
         <Stats
           title="Applied"
           value="10"
-          className="bg-white border-y-4  m-4  flex items-center"
+          className="bg-white border-y-4  m-4  flex items-center rounded-[18px] cursor-pointer hover:shadow-lg"
         />
         <Stats
           title="Phone Screening"
           value="10"
-          className="bg-white border-y-4  m-4  flex items-center"
+          className="bg-white border-y-4  m-4  flex items-center rounded-[18px] cursor-pointer hover:shadow-lg"
         />
         <Stats
           title="Assessment"
           value="10"
-          className="bg-white border-y-4  m-4  flex items-center"
+          className="bg-white border-y-4  m-4  flex items-center rounded-[18px] cursor-pointer hover:shadow-lg"
         />
         <Stats
           title="Interview"
           value="10"
-          className="bg-white border-y-4  m-4  flex items-center"
+          className="bg-white border-y-4  m-4  flex items-center rounded-[18px] cursor-pointer hover:shadow-lg"
         />
         <Stats
           title="Offer"
           value="10"
-          className="bg-white border-y-4  m-4  flex items-center"
+          className="bg-white border-y-4  m-4  flex items-center rounded-[18px] cursor-pointer hover:shadow-lg"
         />
       </div>
     </div>

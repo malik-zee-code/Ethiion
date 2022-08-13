@@ -178,7 +178,7 @@ const JobsComponent = () => {
         <div className="flex mb-6">
           {" "}
           <span className="text-2xl tracking-wide font-bold font-sans ">
-            Zircone Industries{" "}
+            Zirconone Industries{" "}
             <ClickAwayListener onClickAway={() => setOpen(false)}>
               <Tooltip
                 PopperProps={{

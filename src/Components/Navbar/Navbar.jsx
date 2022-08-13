@@ -37,7 +37,7 @@ const Navbar = () => {
           </li>
 
           <li className={`${classes.list}  tracking-wider`}>
-            <Link className="text-slate-500 hover:text-slate-900" to="/reports">
+            <Link className="text-slate-500 hover:text-slate-900" to="/reports/candidateInspection">
               reports
             </Link>
           </li>

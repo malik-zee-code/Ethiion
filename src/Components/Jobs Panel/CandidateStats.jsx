@@ -20,7 +20,7 @@ const CandidateStats = () => {
             </span>
             <button
               className="py-2 px-3 rounded-sm ml-auto bg-[#8635B0] text-white outline-none hover:bg-[#722b95] border-none"
-              onClick={() => navigate("/reports")}
+              onClick={() => navigate("/reports/candidateInspection")}
             >
               View All Reports
             </button>

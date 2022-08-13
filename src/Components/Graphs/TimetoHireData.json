@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "Job": "TSR",
+        "Department": "IT",
+        "Hired": "yes",
+        "OpenDate": "12/12/2020",
+        "TimetoFill": "0 Days",
+        "TimetoHire": "10 days"
+    },
+    {
+        "id": 2,
+        "Job": "CSR",
+        "Department": "CS",
+        "Hired": "No",
+        "OpenDate": "11/12/2020",
+        "TimetoFill": "12 Days",
+        "TimetoHire": "11 days"
+    },
+    {
+        "id": 3,
+        "Job": "TSR",
+        "Department": "IT",
+        "Hired": "yes",
+        "OpenDate": "1/11/2022",
+        "TimetoFill": "1 Days",
+        "TimetoHire": "8 days"
+    },
+    {
+        "id": 4,
+        "Job": "CSR",
+        "Department": "CS",
+        "Hired": "No",
+        "OpenDate": "12/12/2020",
+        "TimetoFill": "3 Days",
+        "TimetoHire": "3 days"
+    },
+    {
+        "id": 5,
+        "Job": "TSR",
+        "Department": "IT",
+        "Hired": "yes",
+        "OpenDate": "31/06/2020",
+        "TimetoFill": "5 Days",
+        "TimetoHire": "8 days"
+    }
+]

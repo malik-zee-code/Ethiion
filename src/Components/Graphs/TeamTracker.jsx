@@ -24,12 +24,16 @@ const TeamTracker = () => {
   ChartJS.register(ArcElement, Tooltip, Legend);
 
   return (
-    <div className="flex h-full  w-full justify-center items-center p-10 ">
-      {" "}
-      <div className="w-[400px]">
-        <Doughnut data={data} className="" />
+    <>
+      <div className="m-10 text-xl font-semibold">Team Tracker</div>
+
+      <div className="flex w-full justify-center items-center ">
+        {" "}
+        <div className="w-[400px]">
+          <Doughnut data={data} className="" />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -9,7 +9,7 @@ import { DomainVerification } from "@mui/icons-material";
 import { Tooltip } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 
-import rows from "./inspectionRows.json";
+import rows from "../Jobs Panel/inspectionRows.json";
 
 const columns = [
   {
@@ -81,6 +81,18 @@ const CandidateInspection = () => {
   console.log(value);
   return (
     <div className="w-full h-full">
+     <h1 className="text-xl font-semibold mt-7 px-4">
+        Candidate Inspections{" "}
+        <Tooltip
+          title="
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum nam perspiciatis voluptatem sapiente voluptas, consequatur tenetur earum molestias neque doloribus.
+        "
+          arrow
+          placement="right-start"
+        >
+          <DomainVerification className="ml-3" />
+        </Tooltip>
+      </h1>
       <div className=" flex justify-between items-center py-6 px-16">
         <div className=" flex  ">
           <FormControl fullWidth>
@@ -88,15 +100,14 @@ const CandidateInspection = () => {
               All Jobs
             </InputLabel>
             <NativeSelect
-              defaultValue={30}
+              defaultValue={""}
               inputProps={{
                 name: "age",
                 id: "uncontrolled-native",
               }}
             >
-              <option value={10}>Ten</option>
-              <option value={20}>Twenty</option>
-              <option value={30}>Thirty</option>
+              <option value={"CSR"}>CSR</option>
+              <option value={"TSR"}>TSR</option>
             </NativeSelect>
           </FormControl>
           <FormControl fullWidth className="ml-10">
@@ -141,18 +152,7 @@ const CandidateInspection = () => {
           />
         </LocalizationProvider>
       </div>
-      <h1 className="text-xl font-semibold mt-7 px-4">
-        Candidate Inspections{" "}
-        <Tooltip
-          title="
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum nam perspiciatis voluptatem sapiente voluptas, consequatur tenetur earum molestias neque doloribus.
-        "
-          arrow
-          placement="right-start"
-        >
-          <DomainVerification className="ml-3" />
-        </Tooltip>
-      </h1>
+
       <div className="h-[500px] p-7">
         <DataGrid
           rows={rows}
