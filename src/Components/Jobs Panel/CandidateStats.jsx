@@ -28,7 +28,7 @@ const CandidateStats = () => {
           <Outlet />
         </div>
       </div>
-      <div className=" w-[400px] min-h-[400px] bg-white mt-20 ">
+      <div className=" w-[400px] max-h-[270px] bg-white mt-20 ">
         <div className="w-full p-2 flex items-center bg-indigo-500 rounded-t-md">
           <span className="text-white font-semibold">Basic Report</span>
         </div>
@@ -55,7 +55,10 @@ const CandidateStats = () => {
               }  `}
             >
               {" "}
-              <Link to={"candidate/sources"} className="ml-2"> Candidate Sources</Link>
+              <Link to={"candidate/sources"} className="ml-2">
+                {" "}
+                Candidate Sources
+              </Link>
             </li>
             <li
               className={` ${
@@ -65,7 +68,10 @@ const CandidateStats = () => {
               }  `}
             >
               {" "}
-              <Link to={"candidate/activity"} className="ml-2"> Activity Thread</Link>
+              <Link to={"candidate/activity"} className="ml-2">
+                {" "}
+                Activity Thread
+              </Link>
             </li>
             <li
               className={` ${
@@ -75,7 +81,10 @@ const CandidateStats = () => {
               }  `}
             >
               {" "}
-              <Link to={"candidate/team-tracker"} className="ml-2"> Team Tracker</Link>
+              <Link to={"candidate/team-tracker"} className="ml-2">
+                {" "}
+                Team Tracker
+              </Link>
             </li>
           </ul>
         </div>
