@@ -65,7 +65,6 @@ const JobsComponent = () => {
   const [pageSize, setPageSize] = React.useState(5);
   const [filterToggle, setFilterToggle] = useState(false);
   const [personName, setPersonName] = React.useState([]);
-  const [toggleStage, setToggleStage] = useState();
 
   const theme = useTheme();
 
