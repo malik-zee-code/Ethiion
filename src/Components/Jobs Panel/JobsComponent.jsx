@@ -13,6 +13,7 @@ import {
   FormGroup,
   IconButton,
   Modal,
+  NativeSelect,
   Tooltip,
 } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
@@ -31,6 +32,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Chip from "@mui/material/Chip";
+import Stages from "./Stages";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -57,107 +59,64 @@ const names = [
   "By Zain's Activity",
 ];
 
-const columns = [
-  {
-    field: "id",
-    headerName: "id",
-    maxWidth: 50,
-    description: "Row number",
-    headerAlign: "left",
-  },
-  {
-    field: "Candidate",
-    headerName: "Candidate",
-    minWidth: 200,
-    description: "Candidate Name",
-    headerAlign: "left",
-  },
-  {
-    field: "JobTitle",
-    headerName: "Job Title",
-    minWidth: 200,
-    description: "Job Title",
-    headerAlign: "left",
-  },
-  {
-    field: "ApplicationDate",
-    headerName: "Application Date",
-    minWidth: 200,
-    description: "Application Date",
-    headerAlign: "left",
-  },
-  {
-    field: "Stages",
-    headerName: "Stages",
-    flex: 1,
-    minWidth: 650,
-    description: "Stages",
-    headerAlign: "left",
-
-    renderCell: (params) => {
-      const value = params.value;
-      console.log(value);
-      return (
-        <>
-          <button
-            className={`btn no-animation ${
-              value === "Applied"
-                ? "bg-indigo-500 text-white hover:bg-indigo-600"
-                : "bg-slate-200 hover:bg-slate-200"
-            }   border-none  font-normal capitalize rounded-full tracking-wider mr-5 text-black `}
-          >
-            Applied
-          </button>
-          <button
-            className={`btn no-animation ${
-              value === "H. Screen"
-                ? "bg-indigo-500 text-white hover:bg-indigo-600"
-                : "bg-slate-200 hover:bg-slate-200"
-            } border-none  font-normal capitalize rounded-full tracking-wider mr-5 text-black`}
-          >
-            h. Screen
-          </button>
-          <button
-            className={`btn no-animation ${
-              value === "Assesment"
-                ? "bg-indigo-500 text-white hover:bg-indigo-600"
-                : "bg-slate-200 hover:bg-slate-200"
-            }  border-none font-normal capitalize rounded-full tracking-wider mr-5 text-black`}
-          >
-            Assesment
-          </button>
-          <button
-            className={`btn no-animation ${
-              value === "Interview"
-                ? "bg-indigo-500 text-white hover:bg-indigo-600"
-                : "bg-slate-200 hover:bg-slate-200"
-            } border-none font-normal capitalize rounded-full tracking-wider mr-5 text-black`}
-          >
-            Interview
-          </button>
-          <button
-            className={`btn no-animation ${
-              value === "Offer"
-                ? "bg-indigo-500 text-white hover:bg-indigo-600"
-                : "bg-slate-200 hover:bg-slate-200"
-            }  border-none font-normal capitalize rounded-full tracking-wider mr-5 text-black`}
-          >
-            offer
-          </button>
-        </>
-      );
-    },
-  },
-];
-
 const JobsComponent = () => {
   const [toggleModal, setToggleModal] = useState(false);
   const [open, setOpen] = useState(false);
   const [pageSize, setPageSize] = React.useState(5);
   const [filterToggle, setFilterToggle] = useState(false);
   const [personName, setPersonName] = React.useState([]);
+  const [toggleStage, setToggleStage] = useState();
 
   const theme = useTheme();
+
+  const columns = [
+    {
+      field: "id",
+      headerName: "id",
+      maxWidth: 50,
+      description: "Row number",
+      headerAlign: "left",
+    },
+    {
+      field: "Candidate",
+      headerName: "Candidate",
+      minWidth: 200,
+      description: "Candidate Name",
+      headerAlign: "left",
+    },
+    {
+      field: "JobTitle",
+      headerName: "Job Title",
+      minWidth: 200,
+      description: "Job Title",
+      headerAlign: "left",
+    },
+    {
+      field: "ApplicationDate",
+      headerName: "Application Date",
+      minWidth: 200,
+      description: "Application Date",
+      headerAlign: "left",
+    },
+    {
+      field: "Stages",
+      headerName: "Stages",
+      flex: 1,
+      minWidth: 650,
+      description: "Stages",
+      headerAlign: "left",
+
+      renderCell: (params) => {
+        const value = params.value;
+        console.log(value);
+        return (
+          <>
+            <Stages value={value} />
+          </>
+        );
+      },
+    },
+  ];
 
   const handleChange = (event) => {
     const {
@@ -168,8 +127,6 @@ const JobsComponent = () => {
       typeof value === "string" ? value.split(",") : value
     );
   };
-
- 
 
   return (
     <div className="">
@@ -203,7 +160,7 @@ const JobsComponent = () => {
           </span>
           <div className="ml-auto ">
             <button
-              className=" py-2 px-3 rounded-sm font-semibold bg-[#8635B0] text-white outline-none hover:bg-[#722b95] border-none"
+              className=" py-2 px-3 rounded-md font-semibold bg-[#8635B0] text-white outline-none hover:bg-[#722b95] border-none"
               onClick={() => setToggleModal(true)}
             >
               <FontAwesomeIcon icon={faBrain} className="mr-4 h-5" />
@@ -255,7 +212,7 @@ const JobsComponent = () => {
                 </div>
               </div>
             </Modal>
-            <button className="py-2 px-3 rounded-sm font-semibold ml-4 bg-[#02A882] text-white outline-none hover:bg-[#038466] border-none">
+            <button className="py-2 px-3 rounded-md font-semibold ml-4 bg-[#02A882] text-white outline-none hover:bg-[#038466] border-none">
               <FontAwesomeIcon icon={faRocket} className="h-5 mr-4" />
               Create Job
             </button>
@@ -368,8 +325,61 @@ const JobsComponent = () => {
 
       <div className="mt-10 grid  gap-6">
         {/* JOBS */}
-        <div className="flex">
+        <div className="flex items-center">
           <span className="text-2xl font-bold ">Jobs</span>
+          <FormControl className="ml-auto w-[100px]">
+            <InputLabel variant="standard" htmlFor="uncontrolled-native">
+              All Jobs
+            </InputLabel>
+            <NativeSelect
+              defaultValue={"DEFAULT"}
+              inputProps={{
+                name: "age",
+                id: "uncontrolled-native",
+              }}
+            >
+              <option value={"DEFAULT"}>Select</option>
+
+              <option value={"CSR"}>CSR</option>
+              <option value={"TSR"}>TSR</option>
+            </NativeSelect>
+          </FormControl>
+          <FormControl className="ml-10">
+            <InputLabel variant="standard" htmlFor="uncontrolled-native">
+              All Location
+            </InputLabel>
+            <NativeSelect
+              defaultValue={"DEFAULT"}
+              inputProps={{
+                name: "age",
+                id: "uncontrolled-native",
+              }}
+            >
+              <option value={"DEFAULT"}>Select</option>
+
+              <option value={"Florida"}>Florida</option>
+              <option value={"Sans Francisco"}>Sans Francisco</option>
+            </NativeSelect>
+          </FormControl>
+          <FormControl className="ml-10 w-[250px]">
+            <InputLabel variant="standard" htmlFor="uncontrolled-native">
+              Group By
+            </InputLabel>
+            <NativeSelect
+              defaultValue={"DEFAULT"}
+              inputProps={{
+                name: "age",
+                id: "uncontrolled-native",
+              }}
+            >
+              <option value={"DEFAULT"}>Select</option>
+
+              <option value={"Florida"}>Most Applied</option>
+              <option value={"Sans Francisco"}>
+                Most Number of Candidates
+              </option>
+            </NativeSelect>
+          </FormControl>
         </div>
         <div className="flex  ">
           {/* TSR */}

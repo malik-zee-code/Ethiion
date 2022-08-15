@@ -49,10 +49,10 @@ const CSR = () => {
         </div>
 
         <div className="ml-auto">
-          <button className=" font-semibold px-3 py-2 rounded-sm ml-4  bg-[#02A882] text-white outline-none hover:bg-[#038466] border-none mr-7">
+          <button className=" rounded-md font-semibold px-3 py-2 ml-4  bg-[#02A882] text-white outline-none hover:bg-[#038466] border-none mr-7">
             Add Candidate
           </button>
-          <button className="font-semibold px-3 py-2 rounded-sm bg-[#8635B0]  text-white outline-none hover:bg-[#722b95] border-none">
+          <button className="rounded-md font-semibold px-3 py-2  bg-[#8635B0]  text-white outline-none hover:bg-[#722b95] border-none">
             Edit Job
           </button>
         </div>
@@ -62,43 +62,40 @@ const CSR = () => {
         <Stats
           title="Applied"
           value="10"
-          className="bg-[#ffffff]  m-4 min-w-[180px] h-[200px] flex items-center"
+          className="bg-[#ffffff] rounded-md  m-4 w-[200px] h-[150px] flex items-center"
         />
         <Stats
           title="Phone Screening"
           value="10"
-          className="bg-[#ffffff]  m-4 min-w-[180px] h-[200px] flex items-center"
+          className="bg-[#ffffff] rounded-md m-4 w-[200px] h-[150px] flex items-center"
         />
         <Stats
           title="Assessment"
           value="10"
-          className="bg-[#ffffff]  m-4 min-w-[180px] h-[200px] flex items-center"
+          className="bg-[#ffffff] rounded-md m-4 w-[200px] h-[150px] flex items-center"
         />
         <Stats
           title="Interview"
           value="10"
-          className="bg-[#ffffff]  m-4 min-w-[180px] h-[200px] flex items-center"
+          className="bg-[#ffffff] rounded-md  m-4 w-[200px] h-[150px] flex items-center"
         />
         <Stats
           title="Offer"
           value="10"
-          className="bg-[#ffffff]  m-4 min-w-[180px] h-[200px] flex items-center"
+          className="bg-[#ffffff] rounded-md m-4 w-[200px] h-[150px] flex items-center"
         />
       </div>
 
       <div className="mt-4 w-full min-h-[800px] flex ">
         <div className="w-[700px] h-full bg-white flex flex-col rounded-md p-10">
           <div className="flex  justify-around">
-            <Stats
-              title="Qualified"
-              value="10"
-              className="bg-[#ffffff]  m-4 min-w-[180px] h-[200px] flex items-center shadow-lg"
-            />
-            <Stats
-              title="Disqualified"
-              value="10"
-              className=" bg-[#ffffff]  m-4 min-w-[180px] h-[200px] flex items-center shadow-lg"
-            />
+            <div className="bg-[#ffffff] rounded-md m-4 min-w-[180px] h-[200px] flex items-center justify-center shadow-lg">
+              <span className="text-2xl">Qualified</span>
+            </div>
+
+            <div className="bg-[#ffffff] rounded-md  m-4 min-w-[180px] h-[200px] flex items-center justify-center shadow-lg">
+              <span className="text-2xl">Disqualified <span className="text-slate-500">(4)</span> </span>
+            </div>
           </div>
 
           <input
@@ -151,10 +148,10 @@ const CSR = () => {
                 <ElevatorSharpIcon />
               </IconButton>
               <IconButton aria-label="delete" className="h-10 mr-5">
-                <Close />
+                <History />
               </IconButton>
               <IconButton aria-label="delete" className="h-10 mr-5">
-                <History />
+                <Close />
               </IconButton>
               <IconButton aria-label="delete" className="h-10 mr-5">
                 <Event />
@@ -171,7 +168,7 @@ const CSR = () => {
                 className="ml-auto py-2 px-3  rounded-sm bg-[#02a882] text-white font-semibold hover:bg-[#129577]"
               >
                 Move to Offers
-                <ExpandMore className="ml-2"/>
+                <ExpandMore className="ml-2" />
               </Button>
               <Menu
                 id="fade-menu"
@@ -226,9 +223,9 @@ const CSR = () => {
             </div>
             {/* Alerts */}
 
-            <div className="flex-1 ">
-              <div className="m-4 ">
-                <div className="flex justify-between">
+            <div className="flex-1 p-2">
+              <div className=" border-b-2  p-3 ">
+                <div className="flex justify-between ">
                   <span className="text-xl font-semibold ">
                     Activity Thread
                   </span>

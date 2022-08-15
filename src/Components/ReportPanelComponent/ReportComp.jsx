@@ -1,6 +1,7 @@
 import {
   Category,
   CreateNewFolder,
+  Person,
   PieChart,
   Search,
   Timeline,
@@ -73,6 +74,18 @@ const ReportComp = () => {
                 collapsed={CandidateTimetoHire}
                 icon={<Timeline />}
               />
+              <DropdownComp
+                ItemText="My Reports"
+                collapsed={[
+                  { name: "Personal Reports", url: "candidatesPersonalReports" },
+                ]}
+                icon={<Person />}
+              />
+
+              <DropdownComp
+                ItemText="Other Reports"
+                collapsed={[{name:'Refferal', url:'candidateRefferals'}]}
+              />
             </List>
 
             <List
@@ -94,6 +107,13 @@ const ReportComp = () => {
                 ItemText="Productivity Reports"
                 collapsed={EmployeeProductivityReport}
                 icon={<Category />}
+              />
+              <DropdownComp
+                ItemText="My Reports"
+                collapsed={[
+                  { name: "Personal Reports", url: "employeePersonalReports" },
+                ]}
+                icon={<Person />}
               />
             </List>
           </div>

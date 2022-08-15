@@ -11,7 +11,8 @@ import FileCopyIcon from "@mui/icons-material/FileCopy";
 import EditIcon from "@mui/icons-material/Edit";
 import { styled } from "@mui/material/styles";
 import { Link } from "react-router-dom";
-
+import { Telegram } from "@mui/icons-material";
+import ChangeStage from "./ChangeStage";
 const StyledMenu = styled((props) => (
   <Menu
     elevation={0}
@@ -57,6 +58,7 @@ const CandidateComp = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   return (
     <div className="mt-6">
       <div className="w-full h-[400px] flex flex-col">
@@ -139,7 +141,7 @@ const CandidateComp = () => {
                   <th>Job </th>
                   <th>Status</th>
                   <th>Overall Rating</th>
-                  <th>Recieved</th>
+                  <th>Received</th>
                   <th>View</th>
                   <th>Actions</th>
                 </tr>
@@ -160,16 +162,13 @@ const CandidateComp = () => {
                     </Link>
                   </td>
                   <td>
-                    <button className="px-3 py-2 text-white font-medium no-animation bg-[#8635b0] border-none  capitalize rounded-[4px] tracking-wider mr-5">
-                      Interview
-                    </button>
+                    <ChangeStage selected="Interview" />
                   </td>
                   <td>
                     <Rating
                       name="size-large"
-                      defaultValue={2.5}
+                      defaultValue={4}
                       precision={0.5}
-                      readOnly
                     />
                   </td>
                   <td>25 Oct, 2022</td>
@@ -186,7 +185,7 @@ const CandidateComp = () => {
                       aria-expanded={open ? "true" : undefined}
                       disableElevation
                       onClick={handleClick}
-                      className="shadow-none text-black rounded-full  h-[50px] p-1"
+                      className="shadow-none text-black rounded-full  h-[50px] "
                     >
                       <FontAwesomeIcon icon={faEllipsis} />
                     </Button>
@@ -228,16 +227,13 @@ const CandidateComp = () => {
                     </Link>
                   </td>
                   <td>
-                    <button className="px-3 py-2 text-white font-medium no-animation bg-[#8635b0] border-none  capitalize rounded-[4px] tracking-wider mr-5">
-                      Interview
-                    </button>
+                    <ChangeStage selected="Applied" />
                   </td>
                   <td>
                     <Rating
                       name="size-large"
                       defaultValue={2.5}
                       precision={0.5}
-                      readOnly
                     />
                   </td>
                   <td>13 Apr, 2001</td>
@@ -268,6 +264,10 @@ const CandidateComp = () => {
                       onClose={handleClose}
                       className="shadow-lg shadow-black"
                     >
+                      <MenuItem onClick={handleClose} disableRipple>
+                        <Telegram />
+                        Invite
+                      </MenuItem>
                       <MenuItem onClick={handleClose} disableRipple>
                         <EditIcon />
                         Edit

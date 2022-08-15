@@ -54,3 +54,8 @@ export const EmployeeProductivityReport = [
     url: "employeeTurnover",
   },
 ];
+
+
+export const CandidateOtherReport = {
+  
+}

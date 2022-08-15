@@ -35,7 +35,7 @@ const AdminSettings = () => {
       </div>
       <div className="flex-1 h-full flex flex-col">
         <div className="flex p-10 w-full">
-          <ul className="flex justify-between text-xl mr-10 w-full font-medium text-slate-500">
+          <ul className="flex justify-between text-xl mr-10 w-full font-semibold text-slate-500">
             <li>Integrations</li>
             <li>Career Page</li>
             <li>Template</li>
@@ -47,10 +47,10 @@ const AdminSettings = () => {
         <div className=" w-full  bg-[#ffffff] min-h-full flex flex-col rounded-md ml-5">
           <div className=" border-b-2">
             <ul className="flex p-7 text-md text-slate-400 ">
-              <li className="mr-10">
+              <li className="mr-10 text-[18px] font-semibold">
                 <Link to="automations">Automation Templates</Link>
               </li>
-              <li>
+              <li className="text-[18px] font-semibold">
                 <Link to="account-automations">Account Automation</Link>
               </li>
             </ul>
