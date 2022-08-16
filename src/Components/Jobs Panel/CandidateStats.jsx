@@ -1,7 +1,7 @@
 import React from "react";
-import { PieChart, WaterfallChart } from "@mui/icons-material";
+import { PieChart } from "@mui/icons-material";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
-
+import trend from "../../Assets/trend.png";
 const CandidateStats = () => {
   const navigate = useNavigate();
 
@@ -10,16 +10,18 @@ const CandidateStats = () => {
   return (
     <div className="flex justify-between">
       <div className="mt-10 w-full mr-5 ">
-        <span className="text-2xl font-bold">
-          Candidate Statistics <WaterfallChart className="ml-2 w-[26px]" />{" "}
+        <span className="text-2xl font-bold flex">
+          {" "}
+          Candidate Statistics{" "}
+          <img src={trend} alt="" className="ml-5 w-[26px]" />
         </span>
-        <div className="mr-10 mt-3 rounded-md bg-white w-full min-h-[500px] flex flex-col ">
+        <div className="mr-10 mt-3 rounded-md bg-white w-full min-h-[500px] flex flex-col pb-10 ">
           <div className="min-h-[100px] p-4 border-b-2 flex items-center">
             <span className="font-semibold text-xl  ">
               Basic Report <PieChart className="ml-2 w-[22px]" />{" "}
             </span>
             <button
-              className="py-2 px-3 rounded-sm ml-auto bg-[#8635B0] text-white outline-none hover:bg-[#722b95] border-none"
+              className="py-2 px-3 rounded-md ml-auto bg-[#8635B0] text-white outline-none hover:bg-[#722b95] border-none"
               onClick={() => navigate("/reports/candidateInspection")}
             >
               View All Reports

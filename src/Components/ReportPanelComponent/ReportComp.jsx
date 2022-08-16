@@ -84,7 +84,7 @@ const ReportComp = () => {
 
               <DropdownComp
                 ItemText="Other Reports"
-                collapsed={[{name:'Refferal', url:'candidateRefferals'}]}
+                collapsed={[{name:'Referral', url:'candidateReferrals'}]}
               />
             </List>
 

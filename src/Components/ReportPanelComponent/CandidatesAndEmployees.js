@@ -8,6 +8,10 @@ export const CandidateBasicReport = [
     url: "candidateSource",
   },
   {
+    name: "Activity Thread",
+    url: "candidateSource",
+  },
+  {
     name: "Team Tracker",
     url: "candidateTeamTracker",
   },
@@ -55,7 +59,4 @@ export const EmployeeProductivityReport = [
   },
 ];
 
-
-export const CandidateOtherReport = {
-  
-}
+export const CandidateOtherReport = {};

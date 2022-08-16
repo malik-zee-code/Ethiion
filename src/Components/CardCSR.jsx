@@ -1,16 +1,12 @@
 import { Checkbox } from "@mui/material";
 import React from "react";
 
-const CardCSR = ({ name, image, role }) => {
+const CardCSR = ({ name, image, role,check }) => {
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
   return (
     <div className="w-full bg-white shadow-lg flex mt-5 p-8 items-center rounded-md">
-      <Checkbox
-        {...label}
-        defaultChecked
-        sx={{ "& .MuiSvgIcon-root": { fontSize: 28 } }}
-      />
+      <Checkbox {...label} sx={{ "& .MuiSvgIcon-root": { fontSize: 28 } }} defaultChecked={check}/>
 
       <img
         src={image}

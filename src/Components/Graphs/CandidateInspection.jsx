@@ -81,11 +81,11 @@ const CandidateInspection = () => {
   console.log(value);
   return (
     <div className="w-full h-full">
-     <h1 className="text-xl font-semibold mt-7 px-4">
+      <h1 className="text-xl font-semibold mt-7 px-4">
         Candidate Inspections{" "}
         <Tooltip
           title="
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum nam perspiciatis voluptatem sapiente voluptas, consequatur tenetur earum molestias neque doloribus.
+          Filter and view the details of every candidate in the system.
         "
           arrow
           placement="right-start"

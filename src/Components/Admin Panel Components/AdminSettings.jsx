@@ -35,7 +35,7 @@ const AdminSettings = () => {
       </div>
       <div className="flex-1 h-full flex flex-col">
         <div className="flex p-10 w-full">
-          <ul className="flex justify-between text-xl mr-10 w-full font-semibold text-slate-500">
+          <ul className="flex justify-between text-xl mr-10 w-full font-medium text-slate-500 tracking-wider">
             <li>Integrations</li>
             <li>Career Page</li>
             <li>Template</li>
@@ -47,7 +47,7 @@ const AdminSettings = () => {
         <div className=" w-full  bg-[#ffffff] min-h-full flex flex-col rounded-md ml-5">
           <div className=" border-b-2">
             <ul className="flex p-7 text-md text-slate-400 ">
-              <li className="mr-10 text-[18px] font-semibold">
+              <li className="mr-10 text-[18px] font-semibold tracking-wide">
                 <Link to="automations">Automation Templates</Link>
               </li>
               <li className="text-[18px] font-semibold">
@@ -56,11 +56,11 @@ const AdminSettings = () => {
             </ul>
           </div>
 
-          <div className=" p-20 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-2">
+          <div className=" p-20 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
             <CardsAutomation title="Ethiion Assessment" />
-            <CardsAutomation title="Ethiion Assessment" />
-            <CardsAutomation title="Ethiion Assessment" />
-            <CardsAutomation title="Ethiion Assessment" />
+            <CardsAutomation title="Thank You Email" />
+            <CardsAutomation title="Disqualification Email" />
+            <CardsAutomation title="Email Template" />
           </div>
           <div className="mt-auto p-10">
             <button className="btn ml-4 px-10 bg-[#02A882] text-white outline-none hover:bg-[#038466] border-none mr-7">

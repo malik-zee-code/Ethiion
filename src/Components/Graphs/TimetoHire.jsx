@@ -71,10 +71,27 @@ const TimetoHire = () => {
 
   return (
     <div className="w-full h-full">
-     <h1 className="text-xl font-semibold my-7 px-4">
-        Time to Hire{" "}
-        
-      </h1>
+      <div className="ml-7 mt-4 mb-5 p-2 flex items-center">
+        <span className="text-xl font-semibold "> Time to Hire</span>{" "}
+        <Tooltip
+          title="
+          Track how long it takes from when a candidate applies to when they are marked as hired in the system.
+      "
+          arrow
+          placement="right-start"
+        >
+          <AccessAlarmSharp className="ml-5" />
+        </Tooltip>{" "}
+        <div className="ml-auto">
+          <button className="px-3 py-2 rounded-md mr-3 font-semibold border-2 shadow-md hover:bg-slate-100 ease-in-out duration-100 ">
+            Export to CSV
+          </button>
+          <button className="px-3 py-2 rounded-md mr-3 font-semibold border-2 shadow-md hover:bg-slate-100 ease-in-out duration-100">
+            Export to PDF
+          </button>
+        </div>
+      </div>
+
       <div className=" flex justify-between items-center py-6 px-16">
         <div className=" flex  ">
           <FormControl fullWidth>
@@ -108,17 +125,8 @@ const TimetoHire = () => {
               <option value={3}>Florida</option>
             </NativeSelect>
           </FormControl>
-          <Tooltip
-          title="
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum nam perspiciatis voluptatem sapiente voluptas, consequatur tenetur earum molestias neque doloribus.
-      "
-          arrow
-          placement="right-start"
-        >
-          <AccessAlarmSharp className="ml-5 mt-3" />
-        </Tooltip>
         </div>
-        
+
         {/* date input */}
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <DateRangePicker
@@ -143,9 +151,8 @@ const TimetoHire = () => {
             )}
           />
         </LocalizationProvider>
-        
       </div>
-     
+
       <div className="h-[500px] p-7">
         <DataGrid
           rows={rows}

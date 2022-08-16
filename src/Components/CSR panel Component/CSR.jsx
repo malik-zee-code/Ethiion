@@ -2,18 +2,22 @@ import {
   faAngleDown,
   faPerson,
   faPlus,
+  faSliders,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
 import Stats from "../Stats";
 import person from "../../Assets/person1.jpg";
 import {
   Button,
   Checkbox,
   Fade,
+  FormControl,
   IconButton,
+  InputLabel,
   Menu,
   MenuItem,
+  NativeSelect,
 } from "@mui/material";
 import CardCSR from "../CardCSR";
 import Alert from "../Jobs Panel/AlertComp";
@@ -31,7 +35,9 @@ import ElevatorSharpIcon from "@mui/icons-material/ElevatorSharp";
 
 const CSR = () => {
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = React.useState(false);
+  const [toggleSelectAll, setToggleSelectAll] = useState(false);
+
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -94,7 +100,9 @@ const CSR = () => {
             </div>
 
             <div className="bg-[#ffffff] rounded-md  m-4 min-w-[180px] h-[200px] flex items-center justify-center shadow-lg">
-              <span className="text-2xl">Disqualified <span className="text-slate-500">(4)</span> </span>
+              <span className="text-2xl">
+                Disqualified <span className="text-slate-500">(4)</span>{" "}
+              </span>
             </div>
           </div>
 
@@ -104,32 +112,77 @@ const CSR = () => {
             className=" outline-none p-3 mt-4 w-full rounded-md bg-[#f4f4f4]"
           />
 
-          <div className="flex items-center ">
+          <div className="flex items-center  mt-3">
             <Checkbox
               {...label}
-              defaultChecked
               sx={{ "& .MuiSvgIcon-root": { fontSize: 28 } }}
+              onChange={() => setToggleSelectAll(!toggleSelectAll)}
+              checked={toggleSelectAll}
             />
             <span>Select All</span>
 
             <div className="ml-auto flex ">
-              <select name="" id="" className=" bg-white p-1">
-                <option value="byactions" className=" bg-white">
+              <FormControl className="mr-3 ">
+                <InputLabel variant="standard" htmlFor="uncontrolled-native">
                   By Actions
-                </option>
-              </select>
+                </InputLabel>
+                <NativeSelect
+                  defaultValue={"DEFAULT"}
+                  inputProps={{
+                    name: "age",
+                    id: "uncontrolled-native",
+                  }}
+                >
+                  <option value={"c"}>Select</option>
+                  <option value={"CSR"}>Send Bulk Emails</option>
+                  <option value={"TSR"}>Move to stage</option>
+                  <option value={"TSR"}>Copy to Job</option>
+                  <option value={"TSR"}>Disqualify Candidates</option>
+                  <option value={"TSR"}>Delete Candidates</option>
+                </NativeSelect>
+              </FormControl>
 
-              <select name="" id="" className=" bg-white p-1">
-                <option value="bydate" className=" bg-white ">
-                  By date
-                </option>
-              </select>
+              <FormControl className="w-[100px]">
+                <InputLabel variant="standard" htmlFor="uncontrolled-native">
+                  By Date
+                </InputLabel>
+                <NativeSelect
+                  defaultValue={"DEFAULT"}
+                  inputProps={{
+                    name: "age",
+                    id: "uncontrolled-native",
+                  }}
+                >
+                  <option value={"DEFAULT"}>Select</option>
+                  {/* <option value={"TSR"}>TSR</option> */}
+                </NativeSelect>
+              </FormControl>
             </div>
           </div>
-          <CardCSR image={person} name="Julia Robert" role="Hiring Manager" />
-          <CardCSR image={person} name="Julia Robert" role="Hiring Manager" />
-          <CardCSR image={person} name="Julia Robert" role="Hiring Manager" />
-          <CardCSR image={person} name="Julia Robert" role="Hiring Manager" />
+          <CardCSR
+            image={person}
+            name="Julia Robert"
+            role="Hiring Manager"
+            check={toggleSelectAll}
+          />
+          <CardCSR
+            image={person}
+            name="Julia Robert"
+            role="Hiring Manager"
+            check={toggleSelectAll}
+          />
+          <CardCSR
+            image={person}
+            name="Julia Robert"
+            role="Hiring Manager"
+            check={toggleSelectAll}
+          />
+          <CardCSR
+            image={person}
+            name="Julia Robert"
+            role="Hiring Manager"
+            check={toggleSelectAll}
+          />
         </div>
 
         <div className="flex flex-col w-full ml-5">
@@ -189,7 +242,10 @@ const CSR = () => {
           <div className="bg-white h-full rounded-md   flex ">
             {/* side bar */}
             <div className="w-[200px] p-4 bg-[#F3F3F3] h-full flex flex-col flex-none">
-              <button className="font-bold mb-3">Filters</button>
+              <IconButton className="font-bold mb-10 w-[40px]">
+                {" "}
+                <FontAwesomeIcon icon={faSliders} className='w-[40px]' />{" "}
+              </IconButton>
               <div className="flex flex-col">
                 <span className="uppercase font-bold ">Automated Actions</span>
                 <button className=" mt-3 rounded-full bg-[#e9e9e9] py-2 font-bold text-[#c4c3c3]">
@@ -223,8 +279,8 @@ const CSR = () => {
             </div>
             {/* Alerts */}
 
-            <div className="flex-1 p-2">
-              <div className=" border-b-2  p-3 ">
+            <div className="flex-1 ">
+              <div className=" border-b-2 border-zinc-300  p-3 ">
                 <div className="flex justify-between ">
                   <span className="text-xl font-semibold ">
                     Activity Thread
@@ -265,10 +321,12 @@ const CSR = () => {
                   </div>
                 </div>
               </div>
-              <Alert title="Launch Date" btnTitle="Go To inbox" />
-              <Alert title="Marked the Interview" btnTitle="Change Status" />
-              <Alert title="Launch Date" btnTitle="Go To inbox" />
-              <Alert title="Marked the Interview" btnTitle="Change Status" />
+              <div className="p-2">
+                <Alert title="Launch Date" btnTitle="Go To inbox" />
+                <Alert title="Marked the Interview" btnTitle="Change Status" />
+                <Alert title="Launch Date" btnTitle="Go To inbox" />
+                <Alert title="Marked the Interview" btnTitle="Change Status" />
+              </div>
             </div>
           </div>
         </div>

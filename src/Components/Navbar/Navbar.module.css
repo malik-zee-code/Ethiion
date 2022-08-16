@@ -15,11 +15,9 @@
   flex: 2;
 }
 .nav_text_links,
-.nav__link__icons,
 .lists {
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .logo {
@@ -43,7 +41,7 @@
   color: white;
 }
 .list {
-  padding: 12px;
+  padding: 0 12px 12px 12px;
   list-style: none;
   text-transform: capitalize;
   font-size: 16px;
@@ -58,7 +56,6 @@
 
 .nav__list__icons {
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 

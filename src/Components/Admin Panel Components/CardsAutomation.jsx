@@ -5,8 +5,8 @@ import React from "react";
 
 const CardsAutomation = ({ title }) => {
   return (
-    <div className="flex p-10 flex-col w-[300px] h-[400px] items-center bg-white rounded-xl shadow-lg mt-3">
-      <span className="text-xl font-semibold">{title}</span>
+    <div className="flex p-10 flex-col w-[250px] h-[400px] items-center bg-white rounded-xl shadow-lg mt-3">
+      <span className="text-lg font-semibold">{title}</span>
 
       <div className="mt-auto flex flex-col justify-center items-center ">
         <IconButton
